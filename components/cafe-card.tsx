@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import ArrowRightIcon from "./icons/arrow-right-icon";
+import MultiStepForm from "./multi-step-form";
 import RatingBar from "./ui/rating-bar";
 
 export default function CafeCard({ cafe }: any) {
@@ -31,21 +32,23 @@ export default function CafeCard({ cafe }: any) {
 
   const averageCafeRating = accumCafeRating / numberOfCafeReviews;
   const internetPercentRating = (3.2 / 5) * 100;
-  const noisePercentRating = (4.2 / 5) * 100;
+  const ambiencePercentRating = (4.2 / 5) * 100;
   const locationPercentRating = (4.7 / 5) * 100;
   return (
     <Card key={cafe.place_id}>
       <CardHeader className="p-3">
         <CardTitle>{cafe.name}</CardTitle>
         <CardDescription>
-          Rating: {averageCafeRating}/5 - ({numberOfCafeReviews})
+          Rating: {averageCafeRating}/5 - ({numberOfCafeReviews}{" "}
+          {numberOfCafeReviews > 1 ? "reviews" : "review"})
         </CardDescription>
       </CardHeader>
       {/* <CardContent>
               <p>Card Content</p>
             </CardContent> */}
       <CardFooter className="flex gap-x-2 p-3 pt-0">
-        <Dialog>
+        <MultiStepForm cafe={cafe} />
+        {/* <Dialog>
           <DialogTrigger
             className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
           >
@@ -72,10 +75,10 @@ export default function CafeCard({ cafe }: any) {
                   </div>
                   <div className="flex flex-col gap-y-2">
                     <div className="flex justify-between font-medium">
-                      <span>Noise</span>
+                      <span>Ambience</span>
                       <span>4.2</span>
                     </div>
-                    <RatingBar percent={noisePercentRating} />
+                    <RatingBar percent={ambiencePercentRating} />
                   </div>
                   <div className="flex flex-col gap-y-2">
                     <div className="flex justify-between font-medium">
@@ -86,6 +89,7 @@ export default function CafeCard({ cafe }: any) {
                   </div>
                 </div>
               </DialogDescription>
+              <MultiStepForm className="min-h-[200px]" cafe={cafe} />
             </DialogHeader>
             <DialogFooter>
               <Dialog>
@@ -109,7 +113,7 @@ export default function CafeCard({ cafe }: any) {
         </Dialog>
         <Button variant={"outline"} size={"sm"}>
           <BookmarkIcon className="h-4 w-4 stroke-2" />
-        </Button>
+        </Button> */}
       </CardFooter>
     </Card>
   );
