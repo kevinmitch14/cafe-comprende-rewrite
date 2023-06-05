@@ -1,7 +1,7 @@
 import CafeCard from "@/components/cafe-card";
 import { MOCK_DATA } from "@/lib/mock-data";
 
-export default async function Home() {
+export default function Home() {
   return (
     <main>
       <h1>Hello World</h1>
