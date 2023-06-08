@@ -150,3 +150,6 @@ export const reviewRelations = relations(review, ({ one }) => ({
 
 export type Cafe = InferModel<typeof cafe>;
 export type Review = InferModel<typeof review>;
+export type CafeWithReview = Cafe & {
+  review: Review[];
+};
