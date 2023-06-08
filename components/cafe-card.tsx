@@ -6,26 +6,57 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import MultiStepForm from "./ui/multi-step-form";
+import MultiStepForm from "./MultiStepForm/multi-step-form";
+import { CafeWithReview } from "@/lib/db/schema";
 
-export default function CafeCard({ cafe }: any) {
-  const accumCafeRating = cafe.reviews.reduce(
-    (prev: number, current: any) => prev + current.rating,
-    0,
-  );
-  const numberOfCafeReviews = cafe.reviews.length;
-  const averageCafeRating = accumCafeRating / numberOfCafeReviews;
+export default function CafeCard({ cafe }: { cafe: CafeWithReview }) {
+  const numberOfReviews = cafe.review.length;
+
+  const averageCafeRating =
+    cafe.review.reduce(
+      (prev: number, current: any) => prev + current.rating,
+      0,
+    ) / numberOfReviews;
+
+  const averageWifiRating =
+    cafe.review.reduce(
+      (prev: number, current: any) => prev + current.wifiRating,
+      0,
+    ) / numberOfReviews;
+
+  const averageVibeRating =
+    cafe.review.reduce(
+      (prev: number, current: any) => prev + current.vibeRating,
+      0,
+    ) / numberOfReviews;
+
+  const averageLocationRating =
+    cafe.review.reduce(
+      (prev: number, current: any) => prev + current.locationRating,
+      0,
+    ) / numberOfReviews;
   return (
-    <Card key={cafe.place_id}>
+    <Card key={cafe.placeId}>
       <CardHeader className="p-3">
         <CardTitle>{cafe.name}</CardTitle>
         <CardDescription>
-          Rating: {averageCafeRating}/5 - ({numberOfCafeReviews}{" "}
-          {numberOfCafeReviews > 1 ? "reviews" : "review"})
+          Rating:{" "}
+          {Number.isInteger(averageCafeRating)
+            ? averageCafeRating
+            : averageCafeRating.toFixed(1)}{" "}
+          / 5 - ({numberOfReviews} {numberOfReviews > 1 ? "reviews" : "review"})
         </CardDescription>
       </CardHeader>
       <CardFooter className="flex gap-x-2 p-3 pt-0">
-        <MultiStepForm cafe={cafe} />
+        <MultiStepForm
+          cafe={{
+            ...cafe,
+            averageCafeRating,
+            averageLocationRating,
+            averageVibeRating,
+            averageWifiRating,
+          }}
+        />
       </CardFooter>
     </Card>
   );
