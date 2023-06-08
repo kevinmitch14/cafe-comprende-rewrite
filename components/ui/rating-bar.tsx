@@ -8,7 +8,7 @@ export default function RatingBar({ percent }: { percent: number }) {
         <div className="h-full w-1/4 bg-emerald-500"></div>
       </div>
       <div
-        style={{ left: `${percent}%` }}
+        style={{ left: `${percent * 20}%` }}
         className={`absolute h-4 w-1 rounded-full bg-black ring-2 ring-white`}
       ></div>
     </div>
