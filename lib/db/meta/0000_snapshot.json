@@ -96,17 +96,12 @@
       "indexes": {
         "Account_provider_providerAccountId_key": {
           "name": "Account_provider_providerAccountId_key",
-          "columns": [
-            "provider",
-            "providerAccountId"
-          ],
+          "columns": ["provider", "providerAccountId"],
           "isUnique": true
         },
         "Account_userId_idx": {
           "name": "Account_userId_idx",
-          "columns": [
-            "userId"
-          ],
+          "columns": ["userId"],
           "isUnique": false
         }
       },
@@ -155,9 +150,7 @@
       "indexes": {
         "Cafe_place_id_key": {
           "name": "Cafe_place_id_key",
-          "columns": [
-            "place_id"
-          ],
+          "columns": ["place_id"],
           "isUnique": true
         }
       },
@@ -224,16 +217,12 @@
       "indexes": {
         "Review_email_idx": {
           "name": "Review_email_idx",
-          "columns": [
-            "email"
-          ],
+          "columns": ["email"],
           "isUnique": false
         },
         "Review_place_id_idx": {
           "name": "Review_place_id_idx",
-          "columns": [
-            "place_id"
-          ],
+          "columns": ["place_id"],
           "isUnique": false
         }
       },
@@ -275,16 +264,12 @@
       "indexes": {
         "Session_sessionToken_key": {
           "name": "Session_sessionToken_key",
-          "columns": [
-            "sessionToken"
-          ],
+          "columns": ["sessionToken"],
           "isUnique": true
         },
         "Session_userId_idx": {
           "name": "Session_userId_idx",
-          "columns": [
-            "userId"
-          ],
+          "columns": ["userId"],
           "isUnique": false
         }
       },
@@ -333,9 +318,7 @@
       "indexes": {
         "User_email_key": {
           "name": "User_email_key",
-          "columns": [
-            "email"
-          ],
+          "columns": ["email"],
           "isUnique": true
         }
       },
@@ -370,17 +353,12 @@
       "indexes": {
         "VerificationToken_token_key": {
           "name": "VerificationToken_token_key",
-          "columns": [
-            "token"
-          ],
+          "columns": ["token"],
           "isUnique": true
         },
         "VerificationToken_identifier_token_key": {
           "name": "VerificationToken_identifier_token_key",
-          "columns": [
-            "identifier",
-            "token"
-          ],
+          "columns": ["identifier", "token"],
           "isUnique": true
         }
       },
@@ -407,26 +385,18 @@
       "compositePrimaryKeys": {
         "_CafeToUser_A_B": {
           "name": "_CafeToUser_A_B",
-          "columns": [
-            "A",
-            "B"
-          ]
+          "columns": ["A", "B"]
         }
       },
       "indexes": {
         "_CafeToUser_AB_unique": {
           "name": "_CafeToUser_AB_unique",
-          "columns": [
-            "A",
-            "B"
-          ],
+          "columns": ["A", "B"],
           "isUnique": true
         },
         "_CafeToUser_AB_idx": {
           "name": "_CafeToUser_AB_idx",
-          "columns": [
-            "B"
-          ],
+          "columns": ["B"],
           "isUnique": false
         }
       },
