@@ -1,5 +1,6 @@
 import CafeCard from "@/components/cafe-card";
 import NavBar from "@/components/nav-bar";
+import MapBox from "@/components/mapbox";
 import { getCafes } from "@/lib/getCafes";
 
 export default async function Home() {
@@ -15,6 +16,7 @@ export default async function Home() {
             return <CafeCard key={cafe.placeId} cafe={cafe} />;
           })}
         </div>
+        <MapBox cafeData={cafeData} />
       </div>
     </main>
   );
