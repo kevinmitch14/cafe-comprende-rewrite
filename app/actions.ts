@@ -1,38 +1,41 @@
 "use server";
 
+import { CafeWithDetailedReview } from "@/components/MultiStepForm/multi-step-form";
 import { db } from "@/lib/db";
 import { review } from "@/lib/db/schema";
-import { Cafe, cafe } from "@/lib/db/schema";
-import { InferModel } from "drizzle-orm";
+import { cafe } from "@/lib/db/schema";
+import { revalidatePath } from "next/cache";
 
 type Ratings = {
-  wifi: number;
-  vibe: number;
-  location: number;
+  wifi: string;
+  vibe: string;
+  location: string;
 };
 
-export async function addReview(cafeInfo: Cafe, ratings: Ratings) {
-  const addCafe = async () => {
-    await db.insert(cafe).values({
-      latitude: cafeInfo.latitude,
-      longitude: cafeInfo.longitude,
-      name: cafeInfo.name,
-      placeId: cafeInfo.placeId,
-      updatedAt: new Date().toISOString(),
-    });
+export async function addReview(
+  selectedCafe: CafeWithDetailedReview,
+  ratings: Ratings,
+) {
+  const values = {
+    latitude: 10,
+    longitude: 10,
+    placeId: selectedCafe.placeId,
+    name: selectedCafe.name,
+    updatedAt: new Date().toISOString().substring(0, 23),
   };
-
-  const addReview = async () => {
-    await db.insert(review).values({
-      email: "kevin@gmail.com",
-      placeId: cafeInfo.placeId,
-      wifiRating: ratings.wifi,
-      locationRating: ratings.location,
-      vibeRating: ratings.vibe,
-      rating: 5,
+  await db
+    .insert(cafe)
+    .values(values)
+    .onDuplicateKeyUpdate({
+      set: { updatedAt: new Date().toISOString().substring(0, 23) },
     });
-  };
-
-  await addReview();
-  await addCafe();
+  await db.insert(review).values({
+    email: "test@gmail.com",
+    placeId: selectedCafe.placeId,
+    locationRating: Number(ratings.location),
+    vibeRating: Number(ratings.vibe),
+    wifiRating: Number(ratings.wifi),
+    // rating: 5,
+  });
+  revalidatePath("/");
 }
