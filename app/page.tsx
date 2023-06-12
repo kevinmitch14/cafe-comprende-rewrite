@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { cafe } from "@/lib/db/schema";
 import { MOCK_DATA } from "@/lib/mock-data";
 import { desc } from "drizzle-orm";
+import NavBar from "@/components/nav-bar";
 
 export default async function Home() {
   const data = await db.query.cafe.findMany({
@@ -13,10 +14,9 @@ export default async function Home() {
   });
   return (
     <main>
-      <h1>Hello World</h1>
-      {data.map((cafe) => {
-        return <CafeCard key={cafe.placeId} cafe={cafe} />;
-      })}
+      {/* @ts-ignore */}
+      <NavBar />
+      <div className="flex">
     </main>
   );
 }
