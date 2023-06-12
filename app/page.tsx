@@ -1,22 +1,21 @@
 import CafeCard from "@/components/cafe-card";
-import { db } from "@/lib/db";
-import { cafe } from "@/lib/db/schema";
-import { MOCK_DATA } from "@/lib/mock-data";
-import { desc } from "drizzle-orm";
 import NavBar from "@/components/nav-bar";
+import { getCafes } from "@/lib/getCafes";
 
 export default async function Home() {
-  const data = await db.query.cafe.findMany({
-    with: {
-      review: true,
-    },
-    orderBy: desc(cafe.updatedAt),
-  });
+  const cafeData = await getCafes();
+
   return (
     <main>
       {/* @ts-ignore */}
       <NavBar />
       <div className="flex">
+        <div className="flex max-h-[calc(100vh-56px)] flex-col gap-y-2 overflow-y-scroll px-2 pt-2">
+          {cafeData.map((cafe) => {
+            return <CafeCard key={cafe.placeId} cafe={cafe} />;
+          })}
+        </div>
+      </div>
     </main>
   );
 }
