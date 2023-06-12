@@ -6,7 +6,11 @@ import { CafeWithDetailedReview } from "./multi-step-form";
 import { UseFormReturn } from "react-hook-form";
 
 type FormType = UseFormReturn<
-  { wifi: number; vibe: number; location: number },
+  {
+    wifi: "1" | "2" | "3" | "4" | "5";
+    vibe: "1" | "2" | "3" | "4" | "5";
+    location: "1" | "2" | "3" | "4" | "5";
+  },
   any,
   undefined
 >;
@@ -15,7 +19,7 @@ export function RatingForm({
   form,
   cafe,
 }: {
-  form: any;
+  form: FormType;
   cafe: CafeWithDetailedReview;
 }) {
   const ratings = [
@@ -64,17 +68,14 @@ export function RatingForm({
                     defaultValue={field.value}
                     className="flex gap-x-1"
                   >
-                    {[1, 2, 3, 4, 5].map((num) => {
+                    {["1", "2", "3", "4", "5"].map((num) => {
                       return (
                         <FormItem
                           key={num}
                           className="flex items-center gap-x-2"
                         >
                           <FormControl className="sr-only">
-                            <RadioGroupItem
-                              value={num.toString()}
-                              className="peer"
-                            />
+                            <RadioGroupItem value={num} className="peer" />
                           </FormControl>
                           <FormLabel className="rounded-md hover:bg-blue-50 peer-aria-checked:bg-blue-50 peer-aria-checked:hover:bg-blue-50">
                             <div

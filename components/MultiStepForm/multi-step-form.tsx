@@ -27,9 +27,9 @@ import { RatingForm } from "./rating-step";
 import { CafeWithReview } from "@/lib/db/schema";
 
 const FormSchema = z.object({
-  wifi: z.number().gt(0).lte(5).int(),
-  vibe: z.number().gt(0).lte(5).int(),
-  location: z.number().gt(0).lte(5).int(),
+  wifi: z.enum(["1", "2", "3", "4", "5"]),
+  vibe: z.enum(["1", "2", "3", "4", "5"]),
+  location: z.enum(["1", "2", "3", "4", "5"]),
 });
 
 export type CafeWithDetailedReview = CafeWithReview & {
