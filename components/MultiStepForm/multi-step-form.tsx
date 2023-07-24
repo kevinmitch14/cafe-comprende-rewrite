@@ -100,7 +100,6 @@ export default function MultiStepForm({
             {!isFirstStep && (
               <Button
                 className="gap-x-1"
-                size={"sm"}
                 variant={"link"}
                 onClick={previousStep}
               >
