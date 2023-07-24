@@ -20,7 +20,7 @@ import {
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import ArrowRightIcon from "../icons/arrow-right-icon";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { addReview } from "@/app/actions";
 import InitialFormStep from "./initial-step";
 import { RatingForm } from "./rating-step";
