@@ -13,7 +13,7 @@ export default async function NavBar() {
           <UserButton afterSignOutUrl="/" />
         </SignedIn>
         <SignedOut>
-          <Button className="bg-blue-500 hover:bg-blue-600" size={"sm"} asChild>
+          <Button size={"sm"} asChild>
             <Link href="/sign-in">Sign In</Link>
           </Button>
           <Button size={"sm"} variant={"outline"} asChild>

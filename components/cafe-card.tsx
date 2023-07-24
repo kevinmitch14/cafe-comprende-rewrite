@@ -47,7 +47,7 @@ export default function CafeCard({ cafe }: { cafe: CafeWithReview }) {
           / 5 - ({numberOfReviews} {numberOfReviews > 1 ? "reviews" : "review"})
         </CardDescription>
       </CardHeader>
-      <CardFooter className="flex gap-x-2 p-3 pt-0">
+      <CardFooter className="p-3 pt-0">
         <MultiStepForm
           cafe={{
             ...cafe,
