@@ -8,7 +8,6 @@ export default async function Home() {
 
   return (
     <main>
-      {/* @ts-ignore */}
       <NavBar />
       <div className="flex">
         <div className="flex max-h-[calc(100vh-56px)] flex-col gap-y-2 overflow-y-scroll px-2 pt-2">
