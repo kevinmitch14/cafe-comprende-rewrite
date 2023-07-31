@@ -1,20 +1,23 @@
-import CafeCard from "@/components/cafe-card";
-import NavBar from "@/components/nav-bar";
 import MapBox from "@/components/mapbox";
+import NavBar from "@/components/nav-bar";
+import Sidebar from "@/components/sidebar";
 import { getCafes } from "@/lib/getCafes";
+import { MOCK_DATA } from "@/lib/mock-data";
 
-export default async function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   const cafeData = await getCafes();
-
   return (
     <main>
       <NavBar />
       <div className="flex">
-        <div className="flex max-h-[calc(100vh-56px)] flex-col gap-y-2 overflow-y-scroll px-2 pt-2">
-          {cafeData.map((cafe) => {
-            return <CafeCard key={cafe.placeId} cafe={cafe} />;
-          })}
-        </div>
+        <Sidebar
+          cafeData={cafeData}
+          country={searchParams.country?.toString() as string}
+        />
         <MapBox cafeData={cafeData} />
       </div>
     </main>
