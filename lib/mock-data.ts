@@ -4,6 +4,7 @@ export const MOCK_DATA = [
     latitude: 49.26722220000001,
     longitude: -123.0694444,
     name: "Prado Cafe",
+    country: "DE",
     updatedAt: "2023-06-08 01:25:27.386",
     review: [
       {
@@ -22,6 +23,7 @@ export const MOCK_DATA = [
     latitude: 52.4933315,
     longitude: 13.4310939,
     name: "La Maison Berlin",
+    country: "CA",
     updatedAt: "2023-06-06 18:04:54.124",
     review: [
       {
@@ -49,6 +51,7 @@ export const MOCK_DATA = [
     latitude: 51.50341580000001,
     longitude: -0.2221035,
     name: "Moulin Rouge Coffee",
+    country: "FR",
     updatedAt: "2023-06-06 18:04:28.735",
     review: [
       {
@@ -67,6 +70,7 @@ export const MOCK_DATA = [
     latitude: 41.4015051,
     longitude: 2.1595591,
     name: "Syra Coffee - Gràcia",
+    country: "ES",
     updatedAt: "2023-06-06 18:04:15.647",
     review: [
       {
@@ -85,6 +89,7 @@ export const MOCK_DATA = [
     latitude: 53.30141469999999,
     longitude: -6.1777449,
     name: "Bear Market Coffee - Blackrock",
+    country: "IE",
     updatedAt: "2023-06-06 18:04:07.229",
     review: [
       {
@@ -103,6 +108,7 @@ export const MOCK_DATA = [
     latitude: 53.2906203,
     longitude: -8.9865314,
     name: "Grind Briarhill",
+    country: "IE",
     updatedAt: "2023-06-06 18:03:53.297",
     review: [
       {
@@ -121,6 +127,7 @@ export const MOCK_DATA = [
     latitude: -33.87938069999999,
     longitude: 151.2111141,
     name: "Paramount Coffee Project",
+    country: "IE",
     updatedAt: "2023-06-06 18:03:38.218",
     review: [
       {

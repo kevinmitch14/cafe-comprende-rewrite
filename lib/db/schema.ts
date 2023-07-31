@@ -45,6 +45,11 @@ export const cafe = mysqlTable(
     longitude: double("longitude").notNull(),
     name: varchar("name", { length: 191 }).notNull(),
     updatedAt: datetime("updatedAt", { mode: "string", fsp: 3 }).notNull(),
+    country: varchar("country_code", {
+      length: 2,
+    })
+      .notNull()
+      .default("IE"),
   },
   (table) => {
     return {

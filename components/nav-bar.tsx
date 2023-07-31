@@ -13,10 +13,10 @@ export default async function NavBar() {
           <UserButton afterSignOutUrl="/" />
         </SignedIn>
         <SignedOut>
-          <Button size={"sm"} asChild>
+          <Button asChild>
             <Link href="/sign-in">Sign In</Link>
           </Button>
-          <Button size={"sm"} variant={"outline"} asChild>
+          <Button variant={"outline"} asChild>
             <Link href="/sign-up">Sign Up</Link>
           </Button>
         </SignedOut>

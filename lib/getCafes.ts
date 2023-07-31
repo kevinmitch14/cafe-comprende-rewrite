@@ -12,3 +12,8 @@ export const getCafes = cache(async () => {
   });
   return cafes;
 });
+
+type StripArray<T> = T extends (infer U)[] ? U : never;
+
+export type CafesWithReviews = Awaited<ReturnType<typeof getCafes>>;
+export type CafeWithReviews = StripArray<CafesWithReviews>;
