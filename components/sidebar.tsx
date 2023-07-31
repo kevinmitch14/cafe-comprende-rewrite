@@ -14,7 +14,7 @@ export default function Sidebar({
   country: string;
   cafeData: CafesWithReviews;
 }) {
-  const filteredMockData = [...MOCK_DATA].filter(
+  const filteredCafeData = [...cafeData].filter(
     (cafe) => cafe.country === country,
   );
   const noFilter = country === undefined;
@@ -22,13 +22,13 @@ export default function Sidebar({
     <div className="flex h-[calc(100vh-56px)] w-[300px] min-w-[300px] flex-col gap-y-2 overflow-y-scroll px-2 pt-2">
       <CountrySelect />
       {noFilter
-        ? MOCK_DATA.map((cafe) => {
+        ? cafeData.map((cafe) => {
             return <CafeCard key={cafe.placeId} cafe={cafe} />;
           })
-        : filteredMockData.map((cafe) => {
+        : filteredCafeData.map((cafe) => {
             return <CafeCard key={cafe.placeId} cafe={cafe} />;
           })}
-      {filteredMockData.length === 0 && (
+      {filteredCafeData.length === 0 && (
         <div className="flex flex-col items-center gap-y-2 py-4">
           <p>No cafes in {countryCodeToName.get(country)} yet.</p>
           <Button>
