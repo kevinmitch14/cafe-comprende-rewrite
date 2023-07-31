@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/popover";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { countryCodeToName } from "@/lib/countries";
+import { countryCodeToName, countryNameToCode } from "@/lib/countries";
 
 const countries = [
   { value: "united states", label: "United States" },
@@ -86,7 +86,7 @@ export default function CountrySelect() {
     (name: string, value: string) => {
       // @ts-ignore
       const params = new URLSearchParams(searchParams);
-      params.set(name, countryCodeToName.get(value)!);
+      params.set(name, countryNameToCode.get(value)!);
       return params.toString();
     },
     [searchParams],
