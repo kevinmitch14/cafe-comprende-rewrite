@@ -4,6 +4,8 @@ import Sidebar from "@/components/sidebar";
 import { getCafes } from "@/lib/getCafes";
 import { MOCK_DATA } from "@/lib/mock-data";
 
+export const runtime = "edge";
+
 export default async function Home({
   searchParams,
 }: {
