@@ -100,6 +100,7 @@ export default function CountrySelect() {
           role="combobox"
           aria-expanded={open}
           className="w-[200px] justify-between"
+          aria-label="Country filter dropdown"
         >
           {value
             ? countries.find((country) => country.value === value)?.label
