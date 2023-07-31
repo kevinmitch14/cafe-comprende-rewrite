@@ -28,7 +28,7 @@ export default function Sidebar({
         : filteredCafeData.map((cafe) => {
             return <CafeCard key={cafe.placeId} cafe={cafe} />;
           })}
-      {filteredCafeData.length === 0 && (
+      {!noFilter && filteredCafeData.length === 0 && (
         <div className="flex flex-col items-center gap-y-2 py-4">
           <p>No cafes in {countryCodeToName.get(country)} yet.</p>
           <Button>
