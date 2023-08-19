@@ -11,15 +11,12 @@ export default async function Home({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const cafeData = await getCafes();
+  const cafeData = await getCafes(searchParams.country?.toString() as string);
   return (
     <main>
       <NavBar />
       <div className="flex">
-        <Sidebar
-          cafeData={cafeData}
-          country={searchParams.country?.toString() as string}
-        />
+        <Sidebar country={searchParams.country?.toString() as string} />
         <MapBox cafeData={cafeData} />
       </div>
     </main>
