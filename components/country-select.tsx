@@ -46,7 +46,7 @@ export default function CountrySelect() {
 
   const [isPending, startTransition] = React.useTransition();
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex flex-1 items-center justify-between gap-x-1">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
@@ -54,7 +54,9 @@ export default function CountrySelect() {
             variant="outline"
             role="combobox"
             aria-expanded={open}
-            className="w-[200px] justify-between"
+            className={
+              "w-full justify-between px-3 font-normal hover:bg-background"
+            }
             aria-label="Country filter dropdown"
           >
             {value
@@ -67,8 +69,8 @@ export default function CountrySelect() {
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[200px] p-0">
-          <Command className="max-h-96">
+        <PopoverContent className="p-0">
+          <Command className="max-h-96 w-full">
             <CommandInput placeholder="Search country..." className="h-9" />
             <CommandEmpty>No country found.</CommandEmpty>
             <CommandGroup className="overflow-scroll">
@@ -102,19 +104,6 @@ export default function CountrySelect() {
           </Command>
         </PopoverContent>
       </Popover>
-      {value && (
-        <Button
-          variant={"ghost"}
-          size={"sm"}
-          className="m-0 px-1.5 text-xs"
-          onClick={() => {
-            setValue("");
-            startTransition(() => router.push(pathname));
-          }}
-        >
-          Clear filters
-        </Button>
-      )}
     </div>
   );
 }

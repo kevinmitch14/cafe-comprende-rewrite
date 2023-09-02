@@ -10,6 +10,8 @@ export default async function NavBar() {
       </h1>
       <div className="flex items-center gap-x-2">
         <SignedIn>
+          {/* TODO use drawer / modal here to add a review */}
+          {/* <Button>Add Review</Button> */}
           <UserButton afterSignOutUrl="/" />
         </SignedIn>
         <SignedOut>
