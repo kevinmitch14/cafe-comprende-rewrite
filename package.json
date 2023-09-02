@@ -42,7 +42,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "@types/mapbox-gl": "^2.7.11",
     "autoprefixer": "^10.4.14",
     "drizzle-kit": "^0.19.12",

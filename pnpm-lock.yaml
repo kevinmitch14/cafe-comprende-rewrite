@@ -98,8 +98,8 @@ dependencies:
 
 devDependencies:
   '@trivago/prettier-plugin-sort-imports':
-    specifier: ^4.1.1
-    version: 4.1.1(prettier@3.0.3)
+    specifier: ^4.2.0
+    version: 4.2.0(prettier@3.0.3)
   '@types/mapbox-gl':
     specifier: ^2.7.11
     version: 2.7.11
@@ -123,7 +123,7 @@ devDependencies:
     version: 3.0.3
   prettier-plugin-tailwindcss:
     specifier: ^0.5.4
-    version: 0.5.4(@trivago/prettier-plugin-sort-imports@4.1.1)(prettier@3.0.3)
+    version: 0.5.4(@trivago/prettier-plugin-sort-imports@4.2.0)(prettier@3.0.3)
   tailwindcss:
     specifier: 0.0.0-insiders.696810f
     version: 0.0.0-insiders.696810f
@@ -1895,11 +1895,11 @@ packages:
       '@tailwindcss/oxide-win32-x64-msvc': 0.0.0-insiders.696810f
     dev: true
 
-  /@trivago/prettier-plugin-sort-imports@4.1.1(prettier@3.0.3):
-    resolution: {integrity: sha512-dQ2r2uzNr1x6pJsuh/8x0IRA3CBUB+pWEW3J/7N98axqt7SQSm+2fy0FLNXvXGg77xEDC7KHxJlHfLYyi7PDcw==}
+  /@trivago/prettier-plugin-sort-imports@4.2.0(prettier@3.0.3):
+    resolution: {integrity: sha512-YBepjbt+ZNBVmN3ev1amQH3lWCmHyt5qTbLCp/syXJRu/Kw2koXh44qayB1gMRxcL/gV8egmjN5xWSrYyfUtyw==}
     peerDependencies:
       '@vue/compiler-sfc': 3.x
-      prettier: 2.x
+      prettier: 2.x - 3.x
     peerDependenciesMeta:
       '@vue/compiler-sfc':
         optional: true
@@ -4511,7 +4511,7 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-tailwindcss@0.5.4(@trivago/prettier-plugin-sort-imports@4.1.1)(prettier@3.0.3):
+  /prettier-plugin-tailwindcss@0.5.4(@trivago/prettier-plugin-sort-imports@4.2.0)(prettier@3.0.3):
     resolution: {integrity: sha512-QZzzB1bID6qPsKHTeA9qPo1APmmxfFrA5DD3LQ+vbTmAnY40eJI7t9Q1ocqel2EKMWNPLJqdTDWZj1hKYgqSgg==}
     engines: {node: '>=14.21.3'}
     peerDependencies:
@@ -4563,7 +4563,7 @@ packages:
       prettier-plugin-twig-melody:
         optional: true
     dependencies:
-      '@trivago/prettier-plugin-sort-imports': 4.1.1(prettier@3.0.3)
+      '@trivago/prettier-plugin-sort-imports': 4.2.0(prettier@3.0.3)
       prettier: 3.0.3
     dev: true
 
