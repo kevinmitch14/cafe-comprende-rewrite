@@ -47,11 +47,13 @@ export default function SelectedCafe({
                 {selectedCafe.photos?.map((photo, idx) => {
                   const numberOfPhotos = selectedCafe.photos?.length;
                   if (idx >= numberOfPhotos! - (numberOfPhotos! % 3)) return;
+                  const photoUrl = photo.getUrl();
+                  console.log({ photoUrl });
                   return (
                     <div key={idx} className="relative h-20">
                       <Image
                         key={crypto.randomUUID()}
-                        src={photo.getUrl()}
+                        src={photoUrl}
                         alt=""
                         fill
                         sizes="100px"
