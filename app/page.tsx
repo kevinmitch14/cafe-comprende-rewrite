@@ -9,14 +9,16 @@ export const runtime = "edge";
 export default async function Home({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: { [key: string]: string | undefined };
 }) {
-  const cafeData = await getCafes(searchParams.country?.toString() as string);
+  const country = searchParams.country;
+  const orderBy = searchParams.sort;
+  const cafeData = await getCafes(country, orderBy);
   return (
     <main>
       <NavBar />
       <div className="flex">
-        <Sidebar country={searchParams.country?.toString() as string} />
+        <Sidebar country={country} orderBy={orderBy} />
         <MapBox cafeData={cafeData} />
       </div>
     </main>
