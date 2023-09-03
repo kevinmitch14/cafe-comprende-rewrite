@@ -47,13 +47,14 @@ export default function SelectedCafe({
                 {selectedCafe.photos?.map((photo, idx) => {
                   const numberOfPhotos = selectedCafe.photos?.length;
                   if (idx >= numberOfPhotos! - (numberOfPhotos! % 3)) return;
-                  const photoUrl = photo.getUrl();
-                  console.log({ photoUrl });
                   return (
                     <div key={idx} className="relative h-20">
                       <Image
+                        // TODO fix images in prod, allowed domains next image
                         key={crypto.randomUUID()}
-                        src={photoUrl}
+                        src={
+                          "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sAUacShi1cALABEkNsXpWIq_FiJSEEQ9GECgslEwms1Prl777ByJZSYJwz_sOAczn5kofvqJ9ngIS9Q83w-sM4slsyOOWMvQyLYTd6HRsnHQNPg4L8QPc5i2I_NEy9czYtoGQZDhBOdSdZLqc3XxQbknSsPhuOH4Kw3l8Q0g2DdyzPTNHh058&3u2822&5m1&2e1&callback=none&key=AIzaSyBhcUiOcSbio-KNInHy-n3sUoCFtjMyL1c&token=21125"
+                        }
                         alt=""
                         fill
                         sizes="100px"
