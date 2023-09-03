@@ -4,14 +4,7 @@ const nextConfig = {
     serverActions: true,
   },
   images: {
-    domains: ["maps.googleapis.com"],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'maps.googleapis.com',
-        pathname: '/**',
-      },
-    ],
+    domains: ["maps.googleapis.com", "h3.googleusercontent.com"],
   }
 };
 
