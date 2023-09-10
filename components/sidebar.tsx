@@ -1,9 +1,8 @@
-import React from "react";
-import CafeList from "@/components/cafe-list";
-import FilterPanel from "@/components/filter-panel";
-import FilterPopover from "@/components/filter-popover";
+import { CafeList } from "@/components/cafe-list";
+import { FilterPanel } from "@/components/filter-panel";
+import { FilterPopover } from "@/components/filter-popover";
 
-export default function Sidebar({
+export function Sidebar({
   country,
   orderBy,
 }: {

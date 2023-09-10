@@ -1,9 +1,8 @@
 "use client";
 
-import "mapbox-gl/dist/mapbox-gl.css";
-
-import mapboxgl from "mapbox-gl";
 import { useEffect, useRef } from "react";
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 import { GetCafes } from "@/components/cafe-list";
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_API_KEY!;
@@ -29,7 +28,7 @@ const popupOffsets = {
   right: [-markerRadius, (markerHeight - markerRadius) * -1],
 };
 
-export default function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
+export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
   const mapContainer = useRef<any>(null);
   const mapRef = useRef<any>(null);
   useEffect(() => {

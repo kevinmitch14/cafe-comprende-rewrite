@@ -1,8 +1,8 @@
 import { Inter } from "next/font/google";
-import { Toaster } from "@/components/ui/toaster";
-import "./globals.css";
+import "@/app/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/react";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({
   subsets: ["latin"],

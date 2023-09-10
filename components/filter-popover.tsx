@@ -3,8 +3,8 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 import { ArrowRightIcon, MixerHorizontalIcon } from "@radix-ui/react-icons";
-import CountrySelect from "@/components/country-select";
-import LoadingSpinner from "@/components/loading-spinner";
+import { CountrySelect } from "@/components/country-select";
+import { LoadingSpinner } from "@/components/loading-spinner";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
@@ -23,7 +23,7 @@ import { createUrl } from "@/lib/utils";
 
 const categories = ["Wifi", "Open Now", "Food", "Location", "Noise", "Price"];
 
-export default function FilterPopover() {
+export function FilterPopover() {
   const [panelOpen, setPanelOpen] = React.useState(false);
   const router = useRouter();
   const pathname = usePathname();

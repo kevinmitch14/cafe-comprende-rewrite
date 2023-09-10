@@ -1,8 +1,8 @@
 "use client";
 
 import { experimental_useFormStatus as useFormStatus } from "react-dom";
+import { LoadingSpinner } from "@/components/loading-spinner";
 import { Button } from "@/components/ui/button";
-import LoadingSpinner from "@/components/loading-spinner";
 
 export function SubmitButton({
   children,

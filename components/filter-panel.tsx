@@ -1,14 +1,10 @@
 "use client";
 
 import React from "react";
-import { PlaceAutoComplete } from "./places-autocomplete";
-import SelectedCafe from "./selected-cafe";
+import { PlaceAutoComplete } from "@/components/places-autocomplete";
+import { SelectedCafe } from "@/components/selected-cafe";
 
-export default function FilterPanel({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function FilterPanel({ children }: { children: React.ReactNode }) {
   const [selectedCafe, setSelectedCafe] =
     React.useState<google.maps.places.PlaceResult | null>(null);
   const [inputValue, setInputValue] = React.useState("");

@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/dialog";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-export default function RateCafeForm({ cafe }: { cafe: GetCafes }) {
+export function RateCafeForm({ cafe }: { cafe: GetCafes }) {
   const [dialogOpen, setDialogOpen] = React.useState(false);
 
   const ratings = [
