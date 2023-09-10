@@ -1,10 +1,10 @@
-import { getCafes } from "@/lib/getCafes";
-import CafeCard from "./cafe-card";
+import { CafeCard } from "@/components/cafe-card";
 import { countryCodeToName } from "@/lib/countries";
+import { getCafes } from "@/lib/getCafes";
 
 export type GetCafes = Awaited<ReturnType<typeof getCafes>>[0];
 
-export default async function CafeList({
+export async function CafeList({
   country,
   orderBy,
 }: {

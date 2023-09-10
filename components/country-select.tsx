@@ -1,9 +1,9 @@
 "use client";
 
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import * as React from "react";
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
-
-import { cn } from "@/lib/utils";
+import { LoadingSpinner } from "@/components/loading-spinner";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -17,16 +17,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   countryCodeToName,
   countryLabels,
   countryNameToCode,
 } from "@/lib/countries";
-import LoadingSpinner from "@/components/loading-spinner";
+import { cn } from "@/lib/utils";
 
-export default function CountrySelect() {
+export function CountrySelect() {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();

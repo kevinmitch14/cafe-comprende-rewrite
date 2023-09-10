@@ -1,6 +1,6 @@
-import { db } from "./db";
 import { desc, eq, sql } from "drizzle-orm";
-import { cafe, review } from "./db/schema";
+import { db } from "@/lib/db";
+import { cafe, review } from "@/lib/db/schema";
 
 export async function getCafes(country?: string, orderBy?: any) {
   const cafes = await db

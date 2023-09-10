@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export default function SelectedCafe({
+export function SelectedCafe({
   selectedCafe,
   handleSelectCafe,
   handleInput,
@@ -52,9 +52,7 @@ export default function SelectedCafe({
                       <Image
                         // TODO fix images in prod, allowed domains next image
                         key={crypto.randomUUID()}
-                        src={
-                          "https://maps.googleapis.com/maps/api/place/js/PhotoService.GetPhoto?1sAUacShi1cALABEkNsXpWIq_FiJSEEQ9GECgslEwms1Prl777ByJZSYJwz_sOAczn5kofvqJ9ngIS9Q83w-sM4slsyOOWMvQyLYTd6HRsnHQNPg4L8QPc5i2I_NEy9czYtoGQZDhBOdSdZLqc3XxQbknSsPhuOH4Kw3l8Q0g2DdyzPTNHh058&3u2822&5m1&2e1&callback=none&key=AIzaSyBhcUiOcSbio-KNInHy-n3sUoCFtjMyL1c&token=21125"
-                        }
+                        src={photo.getUrl()}
                         alt=""
                         fill
                         sizes="100px"

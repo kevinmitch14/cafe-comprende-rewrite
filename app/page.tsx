@@ -1,6 +1,6 @@
-import MapBox from "@/components/mapbox";
-import NavBar from "@/components/nav-bar";
-import Sidebar from "@/components/sidebar";
+import { MapBox } from "@/components/mapbox";
+import { NavBar } from "@/components/nav-bar";
+import { Sidebar } from "@/components/sidebar";
 import { getCafes } from "@/lib/getCafes";
 import { MOCK_DATA } from "@/lib/mock-data";
 

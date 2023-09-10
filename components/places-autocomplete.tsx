@@ -31,7 +31,7 @@ export const PlaceAutoComplete = ({
   }, [initService]);
 
   return (
-    <>
+    <React.Fragment>
       <Script
         defer
         async
@@ -46,6 +46,6 @@ export const PlaceAutoComplete = ({
         onChange={(evt) => handleInput(evt.target.value)}
         className="flex-1"
       />
-    </>
+    </React.Fragment>
   );
 };

@@ -1,3 +1,5 @@
+import { GetCafes } from "@/components/cafe-list";
+import { RateCafeForm } from "@/components/rate-cafe-form";
 import {
   Card,
   CardDescription,
@@ -5,9 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { GetCafes } from "@/components/cafe-list";
-import RateCafeForm from "@/components/rate-cafe-form";
-export default function CafeCard({ cafe }: { cafe: GetCafes }) {
+
+export function CafeCard({ cafe }: { cafe: GetCafes }) {
   return (
     <Card key={cafe.placeId}>
       <CardHeader className="p-3">

@@ -1,4 +1,4 @@
-export default function RatingBar({ percent }: { percent: number }) {
+export function RatingBar({ percent }: { percent: number }) {
   return (
     <div className="relative flex h-2 items-center">
       <div className="flex h-full flex-1 overflow-hidden rounded-full">
