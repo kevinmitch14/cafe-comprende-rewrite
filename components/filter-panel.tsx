@@ -27,11 +27,13 @@ export function FilterPanel({ children }: { children: React.ReactNode }) {
         />
         {children}
       </div>
-      <SelectedCafe
-        selectedCafe={selectedCafe}
-        handleSelectCafe={handleSelectedCafe}
-        handleInput={handleInput}
-      />
+      {selectedCafe && (
+        <SelectedCafe
+          selectedCafe={selectedCafe}
+          handleSelectCafe={handleSelectedCafe}
+          handleInput={handleInput}
+        />
+      )}
     </React.Fragment>
   );
 }
