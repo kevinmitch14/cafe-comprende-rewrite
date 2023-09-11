@@ -14,8 +14,10 @@ export function CafeCard({ cafe }: { cafe: GetCafes }) {
       <CardHeader className="p-3">
         <CardTitle>{cafe.name}</CardTitle>
         <CardDescription>
-          Rating: {cafe.averageRating.toFixed(1)}/ 5 - {cafe.numberOfReviews}{" "}
-          {cafe.numberOfReviews > 1 ? "reviews" : "review"}
+          {`Rating: ${cafe.averageRating.toFixed(1)}/ 5 - ${
+            cafe.numberOfReviews
+          }
+          ${cafe.numberOfReviews > 1 ? "reviews" : "review"}`}
         </CardDescription>
       </CardHeader>
       <CardFooter className="p-3 pt-0">
