@@ -15,6 +15,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { countryCodeToName } from "@/lib/countries";
+import { upperFirstChar } from "@/lib/utils";
 
 export function RateCafeForm({ cafe }: { cafe: GetCafes }) {
   const [dialogOpen, setDialogOpen] = React.useState(false);
@@ -43,56 +45,62 @@ export function RateCafeForm({ cafe }: { cafe: GetCafes }) {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="flex flex-col gap-y-1">
+          <DialogTitle className="mt-4 flex items-center justify-between gap-y-1">
             <span>{cafe.name}</span>
-            <Badge className="peer-c self-start">
+            <Badge variant="secondary">
               {cafe.numberOfReviews === 1 && `${cafe.numberOfReviews} review`}
               {cafe.numberOfReviews >= 1 && `${cafe.numberOfReviews} reviews`}
               {cafe.numberOfReviews === 0 && <p>Unrated</p>}
             </Badge>
           </DialogTitle>
-          <DialogDescription>{}</DialogDescription>
+          <DialogDescription>
+            <span className="text-sm font-medium">
+              {upperFirstChar(countryCodeToName.get(cafe.country)!)}
+            </span>
+            <span>
+              {cafe.latitude} - {cafe.longitude}
+            </span>
+          </DialogDescription>
         </DialogHeader>
-        <div className="flex flex-col gap-y-5 py-2">
-          <form action={handleAction}>
-            <input type="hidden" name="name" value={cafe.name} />
-            <input type="hidden" name="placeId" value={cafe.placeId} />
-            <input type="hidden" name="latitude" value={cafe.latitude} />
-            <input type="hidden" name="longitude" value={cafe.longitude} />
-            {ratings.map((category) => {
-              return (
-                <div key={category.name} className="flex flex-col gap-y-2">
-                  <div className="flex justify-between font-medium">
-                    <span className="capitalize">{category.name}</span>
-                    <span>{category.rating.toFixed(1)}</span>
-                  </div>
-                  <RadioGroup
-                    required
-                    name={`${category.name}Rating`}
-                    className="flex"
-                  >
-                    {[1, 2, 3, 4, 5].map((num) => (
-                      <div key={num} className="flex items-center space-x-2">
-                        <label
-                          htmlFor={`${category.name}-option-${num}`}
-                          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-input bg-transparent px-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 has-[:checked]:bg-accent has-[:checked]:text-accent-foreground"
-                        >
-                          <RadioGroupItem
-                            className="hidden"
-                            value={num.toString()}
-                            id={`${category.name}-option-${num}`}
-                          />
-                          {num}
-                        </label>
-                      </div>
-                    ))}
-                  </RadioGroup>
+        <form action={handleAction} className="flex flex-col gap-y-4 py-2">
+          <input type="hidden" name="name" value={cafe.name} />
+          <input type="hidden" name="placeId" value={cafe.placeId} />
+          <input type="hidden" name="latitude" value={cafe.latitude} />
+          <input type="hidden" name="longitude" value={cafe.longitude} />
+          {ratings.map((category) => {
+            return (
+              <div key={category.name}>
+                <div className="flex justify-between font-medium">
+                  <span>{upperFirstChar(category.name)}</span>
+                  <span>{category.rating.toFixed(1)}</span>
                 </div>
-              );
-            })}
-            <SubmitButton className="mt-4">Submit</SubmitButton>
-          </form>
-        </div>
+                <RadioGroup
+                  required
+                  name={`${category.name}Rating`}
+                  className="flex"
+                >
+                  {[1, 2, 3, 4, 5].map((num) => (
+                    <div key={num} className="flex items-center gap-x-2">
+                      <label
+                        htmlFor={`${category.name}-option-${num}`}
+                        className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-input bg-transparent px-3 text-sm font-medium shadow-sm transition-colors duration-300 hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 has-[:checked]:bg-black has-[:checked]:text-white "
+                      >
+                        <RadioGroupItem
+                          required
+                          className="hidden"
+                          value={num.toString()}
+                          id={`${category.name}-option-${num}`}
+                        />
+                        {num}
+                      </label>
+                    </div>
+                  ))}
+                </RadioGroup>
+              </div>
+            );
+          })}
+          <SubmitButton className="mt-4">Submit</SubmitButton>
+        </form>
       </DialogContent>
     </Dialog>
   );
