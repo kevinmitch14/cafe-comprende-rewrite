@@ -14,7 +14,7 @@ export const PlaceAutoComplete = ({
   inputValue: string;
 }) => {
   const initService = React.useCallback(() => {
-    const options = { types: ["cafe"] };
+    const options: google.maps.places.AutocompleteOptions = { types: ["cafe"] };
     const input = document.getElementById("pac-input") as HTMLInputElement;
     const autocomplete = new google.maps.places.Autocomplete(input, options);
     // TODO set fields for better billing (autocomplete.setFields);
