@@ -42,3 +42,48 @@ export async function createReview(formData: FormData) {
   });
   revalidatePath("/");
 }
+
+const formSchema = z.object({
+  name: z.string().min(1),
+  placeId: z.string().min(3),
+  latitude: z.string(),
+  longitude: z.string(),
+});
+
+type ActionResult =
+  | {
+      type: "success";
+      message: string;
+    }
+  | {
+      type: "error";
+      errors: Record<string, string[] | undefined>;
+    }
+  | { type: undefined; message: null };
+
+function wait(ms: number): Promise<void> {
+  // Wait for the specified amount of time
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export async function action(_: ActionResult, payload: FormData) {
+  // await wait(500);
+  console.log(Object.fromEntries(payload.entries()));
+  const result = formSchema.safeParse(Object.fromEntries(payload.entries()));
+
+  console.dir(
+    { data: Object.fromEntries(payload.entries()), result },
+    { depth: null },
+  );
+
+  if (result.success) {
+    return {
+      type: "success" as const,
+      message: JSON.stringify(result),
+    };
+  }
+  return {
+    type: "error" as const,
+    errors: result.error.flatten().fieldErrors,
+  };
+}

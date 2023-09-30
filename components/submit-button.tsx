@@ -14,7 +14,13 @@ export function SubmitButton({
   const { pending } = useFormStatus();
 
   return (
-    <Button className={className} type="submit">
+    <Button
+      className={className}
+      onClick={(e) => {
+        if (pending) e.preventDefault();
+      }}
+      type="submit"
+    >
       <LoadingSpinner className={`${!pending && "hidden"} absolute`} />
       <span className={`${pending && "opacity-0"}`}>{children}</span>
     </Button>
