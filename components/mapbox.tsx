@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { GetCafes } from "@/components/cafe-list";
+import { useCafeStore } from "@/lib/store/cafe-store";
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_API_KEY!;
 
@@ -28,25 +29,42 @@ const popupOffsets = {
   right: [-markerRadius, (markerHeight - markerRadius) * -1],
 };
 
-export function MapBox({
-  cafeData,
+// TODO needs marker for temporary searched cafe.
+export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
+  const {
+    selectedCafe,
+    setSelectedCafe,
   latitude,
   longitude,
-}: {
-  cafeData: GetCafes[];
-  latitude?: string;
-  longitude?: string;
-}) {
+    setLatitude,
+    setLongitude,
+  } = useCafeStore();
+
   const mapContainer = useRef<any>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
+
+  useEffect(() => {
+    if (latitude && longitude) {
+      mapRef.current?.flyTo({
+        center: {
+          lat: latitude!,
+          lng: longitude!,
+        },
+        maxDuration: 1000,
+        zoom: 15,
+      });
+    }
+  }, [latitude, longitude]);
+
+  // TODO after DragEvent, do new serch
   useEffect(() => {
     if (mapRef.current) return; // initialize map only once
     mapRef.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v8",
       center: {
-        lat: latitude && longitude ? Number(latitude) : 50.7751,
-        lon: latitude && longitude ? Number(longitude) : 12.4193,
+        lat: latitude ? Number(latitude) : 40,
+        lon: longitude ? Number(longitude) : 2,
       },
       zoom: latitude && longitude ? 10 : 3,
       bearing: 0,
@@ -58,20 +76,35 @@ export function MapBox({
     const navigationControl = new mapboxgl.NavigationControl();
     mapRef.current.addControl(navigationControl, "top-right");
     mapRef.current.addControl(geolocationControl);
-    mapRef.current.on("load", () => {
-      geolocationControl.trigger();
-    });
+    mapRef.current.on("load", () => geolocationControl.trigger());
     cafeData.forEach((cafe) => {
-      const popup = new mapboxgl.Popup({ offset: 1, focusAfterOpen: false })
-        .setLngLat([cafe.longitude, cafe.latitude])
-        .setHTML(`<p>${cafe.name}</p>`)
+      const marker = new mapboxgl.Marker()
+        .setLngLat({ lat: cafe.latitude, lng: cafe.longitude })
         .addTo(mapRef.current as mapboxgl.Map);
-      new mapboxgl.Marker()
-        .setLngLat([cafe.longitude, cafe.latitude])
-        .setPopup(popup)
-        .addTo(mapRef.current as mapboxgl.Map);
+      marker.getElement().addEventListener("click", () => {
+        mapRef.current?.flyTo({
+          duration: 500,
+          zoom:
+            mapRef.current.getZoom() > 6
+              ? mapRef.current.getZoom()
+              : latitude && longitude
+              ? 10
+              : 6,
+          center: { lat: cafe.latitude, lng: cafe.longitude },
+        });
+        setSelectedCafe(cafe);
+        setLatitude(cafe.latitude);
+        setLongitude(cafe.longitude);
+      });
     });
-  }, [cafeData, latitude, longitude]);
+  }, [
+    cafeData,
+    latitude,
+    longitude,
+    setSelectedCafe,
+    setLatitude,
+    setLongitude,
+  ]);
 
   return (
     <div className="flex-1 pl-2 pt-2">

@@ -25,11 +25,7 @@ export default async function Home({
       <NavBar />
       <div className="flex">
         <Sidebar country={country} orderBy={orderBy} />
-        <MapBox
-          cafeData={cafeData}
-          latitude={requestLatitude ?? undefined}
-          longitude={requestLongitude ?? undefined}
-        />
+        <MapBox cafeData={cafeData} />
       </div>
     </main>
   );

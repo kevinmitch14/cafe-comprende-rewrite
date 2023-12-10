@@ -2,15 +2,16 @@
 
 import React from "react";
 import { PlaceAutoComplete } from "@/components/places-autocomplete";
-import { SelectedCafe } from "@/components/selected-cafe";
+import { useCafeStore } from "@/lib/store/cafe-store";
 
 export function FilterPanel({ children }: { children: React.ReactNode }) {
-  const [selectedCafe, setSelectedCafe] =
-    React.useState<google.maps.places.PlaceResult | null>(null);
+  const { setSelectedCafe, setLatitude, setLongitude } = useCafeStore();
   const [inputValue, setInputValue] = React.useState("");
 
   function handleSelectedCafe(cafe: google.maps.places.PlaceResult | null) {
     setSelectedCafe(cafe);
+    setLongitude(cafe?.geometry?.location?.lng()!);
+    setLatitude(cafe?.geometry?.location?.lat()!);
   }
 
   function handleInput(val: string) {
@@ -27,13 +28,6 @@ export function FilterPanel({ children }: { children: React.ReactNode }) {
         />
         {children}
       </div>
-      {selectedCafe && (
-        <SelectedCafe
-          selectedCafe={selectedCafe}
-          handleSelectCafe={handleSelectedCafe}
-          handleInput={handleInput}
-        />
-      )}
     </React.Fragment>
   );
 }
