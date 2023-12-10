@@ -24,12 +24,11 @@ export async function getCafes(country?: string, orderBy?: any) {
         ? desc(sql`count (*)`)
         : orderBy === "high-low"
         ? desc(sql<number>`avg_rating`)
-        : desc(cafe.updatedAt),
+        : // TODO DEFAULT distance from user
+          desc(cafe.updatedAt),
     )
     .where(country ? eq(cafe.country, country) : undefined);
   return cafes;
 }
-type StripArray<T> = T extends (infer U)[] ? U : never;
 
-export type CafesWithReviews = Awaited<ReturnType<typeof getCafes>>;
-export type CafeWithReviews = StripArray<CafesWithReviews>;
+export type CafeWithReviews = Awaited<ReturnType<typeof getCafes>>[number];
