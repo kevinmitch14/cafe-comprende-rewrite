@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Cross2Icon } from "@radix-ui/react-icons";
+import { Cross2Icon, ExternalLinkIcon } from "@radix-ui/react-icons";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { GetCafes } from "@/components/cafe-list";
@@ -10,7 +10,6 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
@@ -117,12 +116,31 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
                 <SheetTitle className="flex items-center gap-3">
                   {selectedCafe?.name}
                 </SheetTitle>
-                <SheetDescription>
-                  A short description about this cafe.
-                </SheetDescription>
                 <div className="flex gap-x-1">
-                  <Badge variant={"secondary"}>Open Now</Badge>
-                  <Badge variant={"secondary"}>Directions</Badge>
+                  <a
+                    // TODO cleanup this TS mess :(
+                    href={`https://www.google.com/maps/dir/?api=1&destination_place_id=${
+                      selectedCafe && "place_id" in selectedCafe
+                        ? selectedCafe?.place_id
+                        : selectedCafe && "placeId" in selectedCafe
+                        ? selectedCafe?.placeId
+                        : null
+                    }&destination=${
+                      selectedCafe && "place_id" in selectedCafe
+                        ? selectedCafe?.place_id
+                        : selectedCafe && "placeId" in selectedCafe
+                        ? selectedCafe?.placeId
+                        : null
+                    }`}
+                  >
+                    <Badge
+                      className="flex items-center gap-x-1"
+                      variant={"secondary"}
+                    >
+                      Directions
+                      <ExternalLinkIcon className="h-3 w-3 text-blue-500" />
+                    </Badge>
+                  </a>
                 </div>
                 <SheetClose
                   onClick={() => setSelectedCafe(null)}
