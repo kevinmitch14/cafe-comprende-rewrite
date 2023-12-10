@@ -1,8 +1,11 @@
 import { create } from "zustand";
+import { GetCafes } from "@/components/cafe-list";
 
 interface BearState {
-  selectedCafe: google.maps.places.PlaceResult | null;
-  setSelectedCafe: (cafe: google.maps.places.PlaceResult | null) => void;
+  selectedCafe: google.maps.places.PlaceResult | GetCafes | null;
+  setSelectedCafe: (
+    cafe: google.maps.places.PlaceResult | GetCafes | null,
+  ) => void;
   latitude: number | null;
   setLatitude: (latitude: number) => void;
   longitude: number | null;
