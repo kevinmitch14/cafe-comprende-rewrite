@@ -20,7 +20,6 @@ export const PlaceAutoComplete = ({
     // TODO set fields for better billing (autocomplete.setFields);
     autocomplete.addListener("place_changed", () => {
       const selectedPlace = autocomplete.getPlace();
-      console.log(selectedPlace);
       handleSelectCafe(selectedPlace);
       handleInput(selectedPlace.name as string);
     });
