@@ -1,9 +1,19 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Cross2Icon } from "@radix-ui/react-icons";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { GetCafes } from "@/components/cafe-list";
+import { Badge } from "@/components/ui/badge";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import { useCafeStore } from "@/lib/store/cafe-store";
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_API_KEY!;
@@ -34,8 +44,8 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
   const {
     selectedCafe,
     setSelectedCafe,
-  latitude,
-  longitude,
+    latitude,
+    longitude,
     setLatitude,
     setLongitude,
   } = useCafeStore();
@@ -109,9 +119,38 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
   return (
     <div className="flex-1 pl-2 pt-2">
       <div
-        className="inset-0 h-full w-full rounded-tl-md"
+        className="relative inset-0 h-full w-full rounded-tl-md"
         ref={mapContainer}
-      ></div>
+      >
+        <div className="absolute bottom-0 w-full">
+          <Sheet modal={false} open={!!selectedCafe}>
+            <SheetContent
+              className="absolute rounded-t-lg border-2"
+              side={"bottom"}
+            >
+              <SheetHeader>
+                <SheetTitle className="flex items-center gap-3">
+                  {selectedCafe?.name}
+                </SheetTitle>
+                <SheetDescription>
+                  A short description about this cafe.
+                </SheetDescription>
+                <div className="flex gap-x-1">
+                  <Badge variant={"secondary"}>Open Now</Badge>
+                  <Badge variant={"secondary"}>Directions</Badge>
+                </div>
+                <SheetClose
+                  onClick={() => setSelectedCafe(null)}
+                  className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary"
+                >
+                  <Cross2Icon className="h-4 w-4" />
+                  <span className="sr-only">Close</span>
+                </SheetClose>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
     </div>
   );
 }
