@@ -18,28 +18,6 @@ import { useCafeStore } from "@/lib/store/cafe-store";
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_API_KEY!;
 
-const markerHeight = 50;
-const markerRadius = 10;
-const linearOffset = 25;
-
-const popupOffsets = {
-  top: [0, 0],
-  "top-left": [0, 0],
-  "top-right": [0, 0],
-  bottom: [0, -markerHeight],
-  "bottom-left": [
-    linearOffset,
-    (markerHeight - markerRadius + linearOffset) * -1,
-  ],
-  "bottom-right": [
-    -linearOffset,
-    (markerHeight - markerRadius + linearOffset) * -1,
-  ],
-  left: [markerRadius, (markerHeight - markerRadius) * -1],
-  right: [-markerRadius, (markerHeight - markerRadius) * -1],
-};
-
-// TODO needs marker for temporary searched cafe.
 export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
   const {
     selectedCafe,
@@ -52,17 +30,24 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
 
   const mapContainer = useRef<any>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
+  const tempMarker = useRef<mapboxgl.Marker | null>(null);
 
   useEffect(() => {
     if (latitude && longitude) {
       mapRef.current?.flyTo({
-        center: {
-          lat: latitude!,
-          lng: longitude!,
-        },
+        center: { lat: latitude, lng: longitude },
         maxDuration: 1000,
         zoom: 15,
       });
+    }
+  }, [latitude, longitude]);
+
+  useEffect(() => {
+    if (tempMarker.current) tempMarker.current.remove();
+    if (latitude && longitude) {
+      tempMarker.current = new mapboxgl.Marker({ color: "#ef4444" })
+        .setLngLat({ lat: latitude, lng: longitude })
+        .addTo(mapRef.current as mapboxgl.Map);
     }
   }, [latitude, longitude]);
 
