@@ -101,9 +101,9 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
   ]);
 
   return (
-    <div className="flex-1 pl-2 pt-2">
+    <div className="flex-1 p-1">
       <div
-        className="relative inset-0 h-full w-full rounded-tl-md"
+        className="relative inset-0 h-full w-full rounded-md"
         ref={mapContainer}
       >
         <div className="absolute bottom-0 w-full">

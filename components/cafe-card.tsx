@@ -24,7 +24,7 @@ export function CafeCard({ cafe }: { cafe: GetCafes }) {
       key={cafe.placeId}
     >
       <CardHeader className="p-3">
-        <CardTitle>{cafe.name}</CardTitle>
+        <CardTitle className="truncate">{cafe.name}</CardTitle>
         <CardDescription>
           {`Rating: ${cafe.averageRating.toFixed(1)}/ 5 - ${
             cafe.numberOfReviews

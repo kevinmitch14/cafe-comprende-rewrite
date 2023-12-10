@@ -19,5 +19,11 @@ export async function CafeList({
       </p>
     );
   }
-  return cafes.map((cafe) => <CafeCard key={cafe.placeId} cafe={cafe} />);
+  return (
+    <div className="hidden gap-y-2 lg:flex lg:flex-col">
+      {cafes.map((cafe) => (
+        <CafeCard key={cafe.placeId} cafe={cafe} />
+      ))}
+    </div>
+  );
 }

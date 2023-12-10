@@ -21,7 +21,7 @@ export default async function Home({
   return (
     <main>
       <NavBar />
-      <div className="flex">
+      <div className="flex h-[calc(100vh-60px)]">
         <Sidebar country={country} orderBy={orderBy} />
         <MapBox cafeData={cafeData} />
       </div>
