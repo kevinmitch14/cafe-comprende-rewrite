@@ -43,7 +43,7 @@ export const PlaceAutoComplete = ({
         autoComplete="off"
         value={inputValue}
         onChange={(evt) => handleInput(evt.target.value)}
-        className="flex-1 border bg-background"
+        className="flex-1 border bg-background text-base"
       />
     </React.Fragment>
   );
