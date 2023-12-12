@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { GetCafes } from "@/components/cafe-list";
 
-interface BearState {
+export interface BearState {
   selectedCafe: google.maps.places.PlaceResult | GetCafes | null;
   setSelectedCafe: (
     cafe: google.maps.places.PlaceResult | GetCafes | null,

@@ -5,7 +5,8 @@ import { PlaceAutoComplete } from "@/components/places-autocomplete";
 import { useCafeStore } from "@/lib/store/cafe-store";
 
 export function FilterPanel({ children }: { children: React.ReactNode }) {
-  const { setSelectedCafe, setLatitude, setLongitude } = useCafeStore();
+  const { selectedCafe, setSelectedCafe, setLatitude, setLongitude } =
+    useCafeStore();
   const [inputValue, setInputValue] = React.useState("");
 
   function handleSelectedCafe(cafe: google.maps.places.PlaceResult | null) {
@@ -18,12 +19,18 @@ export function FilterPanel({ children }: { children: React.ReactNode }) {
     setInputValue(val);
   }
 
+  function removeSelectedCafe() {
+    setSelectedCafe(null);
+  }
+
   return (
     <React.Fragment>
       <div className="flex gap-x-1">
         <PlaceAutoComplete
+          selectedCafe={selectedCafe}
           inputValue={inputValue}
           handleSelectCafe={handleSelectedCafe}
+          removeSelectedCafe={removeSelectedCafe}
           handleInput={handleInput}
         />
         {children}
