@@ -52,7 +52,7 @@ export const PlaceAutoComplete = ({
           onChange={(evt) => handleInput(evt.target.value)}
           className="select-none border bg-background text-base"
         />
-        {selectedCafe && (
+        {selectedCafe && inputValue !== "" && (
           <Cross2Icon
             onClick={() => {
               removeSelectedCafe();
