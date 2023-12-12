@@ -68,8 +68,8 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
     });
     const geolocationControl = new mapboxgl.GeolocateControl();
     const navigationControl = new mapboxgl.NavigationControl();
-    mapRef.current.addControl(navigationControl, "top-right");
-    mapRef.current.addControl(geolocationControl);
+    mapRef.current.addControl(navigationControl, "bottom-right");
+    mapRef.current.addControl(geolocationControl, "bottom-right");
     mapRef.current.on("load", () => geolocationControl.trigger());
     cafeData.forEach((cafe) => {
       const marker = new mapboxgl.Marker()
