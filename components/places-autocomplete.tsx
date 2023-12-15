@@ -35,6 +35,15 @@ export const PlaceAutoComplete = ({
     window.initService = initService;
   }, [initService]);
 
+  const deferredQuery = React.useDeferredValue(selectedCafe);
+
+  React.useEffect(() => {
+    // Changed to null
+    if (!selectedCafe && deferredQuery !== selectedCafe) {
+      handleInput("");
+    }
+  }, [selectedCafe, deferredQuery, handleInput]);
+
   return (
     <React.Fragment>
       <Script

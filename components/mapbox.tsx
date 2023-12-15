@@ -43,12 +43,12 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
 
   useEffect(() => {
     if (tempMarker.current) tempMarker.current.remove();
-    if (latitude && longitude) {
+    if (latitude && longitude && selectedCafe) {
       tempMarker.current = new mapboxgl.Marker({ color: "#ef4444" })
         .setLngLat({ lat: latitude, lng: longitude })
         .addTo(mapRef.current as mapboxgl.Map);
     }
-  }, [latitude, longitude]);
+  }, [latitude, longitude, selectedCafe]);
 
   // TODO after DragEvent, do new serch
   useEffect(() => {
