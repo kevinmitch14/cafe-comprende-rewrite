@@ -57,7 +57,7 @@ export function RateCafeForm({ cafe }: { cafe: GetCafes }) {
             <span className="text-sm font-medium">
               {
                 detailedCountryInformation.find(
-                  (country) => country.cca2 === cafe.country,
+                  (country) => country.countryCode === cafe.country,
                 )?.name.common
               }
             </span>

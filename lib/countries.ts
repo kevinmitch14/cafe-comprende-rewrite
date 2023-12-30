@@ -10,7 +10,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CN",
+    countryCode: "CN",
     currencies: {
       CNY: {
         name: "Chinese yuan",
@@ -42,7 +42,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "IN",
+    countryCode: "IN",
     currencies: {
       INR: {
         name: "Indian rupee",
@@ -68,7 +68,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "US",
+    countryCode: "US",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -92,7 +92,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "ID",
+    countryCode: "ID",
     currencies: {
       IDR: {
         name: "Indonesian rupiah",
@@ -120,7 +120,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PK",
+    countryCode: "PK",
     currencies: {
       PKR: {
         name: "Pakistani rupee",
@@ -145,7 +145,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BR",
+    countryCode: "BR",
     currencies: {
       BRL: {
         name: "Brazilian real",
@@ -169,7 +169,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "NG",
+    countryCode: "NG",
     currencies: {
       NGN: {
         name: "Nigerian naira",
@@ -193,7 +193,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BD",
+    countryCode: "BD",
     currencies: {
       BDT: {
         name: "Bangladeshi taka",
@@ -217,7 +217,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "RU",
+    countryCode: "RU",
     currencies: {
       RUB: {
         name: "Russian ruble",
@@ -241,7 +241,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MX",
+    countryCode: "MX",
     currencies: {
       MXN: {
         name: "Mexican peso",
@@ -265,7 +265,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "JP",
+    countryCode: "JP",
     currencies: {
       JPY: {
         name: "Japanese yen",
@@ -289,7 +289,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "ET",
+    countryCode: "ET",
     currencies: {
       ETB: {
         name: "Ethiopian birr",
@@ -317,7 +317,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PH",
+    countryCode: "PH",
     currencies: {
       PHP: {
         name: "Philippine peso",
@@ -358,7 +358,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CD",
+    countryCode: "CD",
     currencies: {
       CDF: {
         name: "Congolese franc",
@@ -386,7 +386,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "EG",
+    countryCode: "EG",
     currencies: {
       EGP: {
         name: "Egyptian pound",
@@ -410,7 +410,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "VN",
+    countryCode: "VN",
     currencies: {
       VND: {
         name: "Vietnamese đồng",
@@ -434,7 +434,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TR",
+    countryCode: "TR",
     currencies: {
       TRY: {
         name: "Turkish lira",
@@ -458,7 +458,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "IR",
+    countryCode: "IR",
     currencies: {
       IRR: {
         name: "Iranian rial",
@@ -482,7 +482,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "DE",
+    countryCode: "DE",
     currencies: {
       EUR: {
         name: "Euro",
@@ -506,7 +506,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TH",
+    countryCode: "TH",
     currencies: {
       THB: {
         name: "Thai baht",
@@ -530,7 +530,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "FR",
+    countryCode: "FR",
     currencies: {
       EUR: {
         name: "Euro",
@@ -554,7 +554,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GB",
+    countryCode: "GB",
     currencies: {
       GBP: {
         name: "British pound",
@@ -582,7 +582,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TZ",
+    countryCode: "TZ",
     currencies: {
       TZS: {
         name: "Tanzanian shilling",
@@ -607,7 +607,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "IT",
+    countryCode: "IT",
     currencies: {
       EUR: {
         name: "Euro",
@@ -671,7 +671,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "ZA",
+    countryCode: "ZA",
     currencies: {
       ZAR: {
         name: "South African rand",
@@ -705,7 +705,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MM",
+    countryCode: "MM",
     currencies: {
       MMK: {
         name: "Burmese kyat",
@@ -733,7 +733,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "KE",
+    countryCode: "KE",
     currencies: {
       KES: {
         name: "Kenyan shilling",
@@ -758,7 +758,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "KR",
+    countryCode: "KR",
     currencies: {
       KRW: {
         name: "South Korean won",
@@ -782,7 +782,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CO",
+    countryCode: "CO",
     currencies: {
       COP: {
         name: "Colombian peso",
@@ -806,7 +806,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "ES",
+    countryCode: "ES",
     currencies: {
       EUR: {
         name: "Euro",
@@ -837,7 +837,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "UG",
+    countryCode: "UG",
     currencies: {
       UGX: {
         name: "Ugandan shilling",
@@ -866,7 +866,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AR",
+    countryCode: "AR",
     currencies: {
       ARS: {
         name: "Argentine peso",
@@ -891,7 +891,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "DZ",
+    countryCode: "DZ",
     currencies: {
       DZD: {
         name: "Algerian dinar",
@@ -915,7 +915,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "UA",
+    countryCode: "UA",
     currencies: {
       UAH: {
         name: "Ukrainian hryvnia",
@@ -943,7 +943,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SD",
+    countryCode: "SD",
     currencies: {
       SDG: {
         name: "Sudanese pound",
@@ -976,7 +976,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "IQ",
+    countryCode: "IQ",
     currencies: {
       IQD: {
         name: "Iraqi dinar",
@@ -1010,7 +1010,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AF",
+    countryCode: "AF",
     currencies: {
       AFN: {
         name: "Afghan afghani",
@@ -1040,7 +1040,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CA",
+    countryCode: "CA",
     currencies: {
       CAD: {
         name: "Canadian dollar",
@@ -1065,7 +1065,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PL",
+    countryCode: "PL",
     currencies: {
       PLN: {
         name: "Polish złoty",
@@ -1093,7 +1093,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MA",
+    countryCode: "MA",
     currencies: {
       MAD: {
         name: "Moroccan dirham",
@@ -1118,7 +1118,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SA",
+    countryCode: "SA",
     currencies: {
       SAR: {
         name: "Saudi riyal",
@@ -1146,7 +1146,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "UZ",
+    countryCode: "UZ",
     currencies: {
       UZS: {
         name: "Uzbekistani soʻm",
@@ -1179,7 +1179,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PE",
+    countryCode: "PE",
     currencies: {
       PEN: {
         name: "Peruvian sol",
@@ -1205,7 +1205,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AO",
+    countryCode: "AO",
     currencies: {
       AOA: {
         name: "Angolan kwanza",
@@ -1233,7 +1233,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MY",
+    countryCode: "MY",
     currencies: {
       MYR: {
         name: "Malaysian ringgit",
@@ -1258,7 +1258,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MZ",
+    countryCode: "MZ",
     currencies: {
       MZN: {
         name: "Mozambican metical",
@@ -1282,7 +1282,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GH",
+    countryCode: "GH",
     currencies: {
       GHS: {
         name: "Ghanaian cedi",
@@ -1306,7 +1306,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "YE",
+    countryCode: "YE",
     currencies: {
       YER: {
         name: "Yemeni rial",
@@ -1330,7 +1330,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "NP",
+    countryCode: "NP",
     currencies: {
       NPR: {
         name: "Nepalese rupee",
@@ -1354,7 +1354,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "VE",
+    countryCode: "VE",
     currencies: {
       VES: {
         name: "Venezuelan bolívar soberano",
@@ -1382,7 +1382,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MG",
+    countryCode: "MG",
     currencies: {
       MGA: {
         name: "Malagasy ariary",
@@ -1411,7 +1411,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CM",
+    countryCode: "CM",
     currencies: {
       XAF: {
         name: "Central African CFA franc",
@@ -1436,7 +1436,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CI",
+    countryCode: "CI",
     currencies: {
       XOF: {
         name: "West African CFA franc",
@@ -1460,7 +1460,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "KP",
+    countryCode: "KP",
     currencies: {
       KPW: {
         name: "North Korean won",
@@ -1484,7 +1484,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AU",
+    countryCode: "AU",
     currencies: {
       AUD: {
         name: "Australian dollar",
@@ -1508,7 +1508,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "NE",
+    countryCode: "NE",
     currencies: {
       XOF: {
         name: "West African CFA franc",
@@ -1532,7 +1532,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TW",
+    countryCode: "TW",
     currencies: {
       TWD: {
         name: "New Taiwan dollar",
@@ -1560,7 +1560,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "LK",
+    countryCode: "LK",
     currencies: {
       LKR: {
         name: "Sri Lankan rupee",
@@ -1585,7 +1585,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BF",
+    countryCode: "BF",
     currencies: {
       XOF: {
         name: "West African CFA franc",
@@ -1609,7 +1609,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "ML",
+    countryCode: "ML",
     currencies: {
       XOF: {
         name: "West African CFA franc",
@@ -1633,7 +1633,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "RO",
+    countryCode: "RO",
     currencies: {
       RON: {
         name: "Romanian leu",
@@ -1661,7 +1661,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MW",
+    countryCode: "MW",
     currencies: {
       MWK: {
         name: "Malawian kwacha",
@@ -1686,7 +1686,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CL",
+    countryCode: "CL",
     currencies: {
       CLP: {
         name: "Chilean peso",
@@ -1714,7 +1714,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "KZ",
+    countryCode: "KZ",
     currencies: {
       KZT: {
         name: "Kazakhstani tenge",
@@ -1739,7 +1739,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "ZM",
+    countryCode: "ZM",
     currencies: {
       ZMW: {
         name: "Zambian kwacha",
@@ -1763,7 +1763,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "EC",
+    countryCode: "EC",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -1787,7 +1787,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SY",
+    countryCode: "SY",
     currencies: {
       SYP: {
         name: "Syrian pound",
@@ -1811,7 +1811,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GT",
+    countryCode: "GT",
     currencies: {
       GTQ: {
         name: "Guatemalan quetzal",
@@ -1835,7 +1835,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SN",
+    countryCode: "SN",
     currencies: {
       XOF: {
         name: "West African CFA franc",
@@ -1859,7 +1859,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "KH",
+    countryCode: "KH",
     currencies: {
       KHR: {
         name: "Cambodian riel",
@@ -1887,7 +1887,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "NL",
+    countryCode: "NL",
     currencies: {
       EUR: {
         name: "Euro",
@@ -1915,7 +1915,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TD",
+    countryCode: "TD",
     currencies: {
       XAF: {
         name: "Central African CFA franc",
@@ -1944,7 +1944,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SO",
+    countryCode: "SO",
     currencies: {
       SOS: {
         name: "Somali shilling",
@@ -2025,7 +2025,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "ZW",
+    countryCode: "ZW",
     currencies: {
       ZWL: {
         name: "Zimbabwean dollar",
@@ -2063,7 +2063,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GN",
+    countryCode: "GN",
     currencies: {
       GNF: {
         name: "Guinean franc",
@@ -2095,7 +2095,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "RW",
+    countryCode: "RW",
     currencies: {
       RWF: {
         name: "Rwandan franc",
@@ -2121,7 +2121,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BJ",
+    countryCode: "BJ",
     currencies: {
       XOF: {
         name: "West African CFA franc",
@@ -2149,7 +2149,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BI",
+    countryCode: "BI",
     currencies: {
       BIF: {
         name: "Burundian franc",
@@ -2174,7 +2174,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TN",
+    countryCode: "TN",
     currencies: {
       TND: {
         name: "Tunisian dinar",
@@ -2210,7 +2210,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BO",
+    countryCode: "BO",
     currencies: {
       BOB: {
         name: "Bolivian boliviano",
@@ -2245,7 +2245,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BE",
+    countryCode: "BE",
     currencies: {
       EUR: {
         name: "Euro",
@@ -2275,7 +2275,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "HT",
+    countryCode: "HT",
     currencies: {
       HTG: {
         name: "Haitian gourde",
@@ -2300,7 +2300,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CU",
+    countryCode: "CU",
     currencies: {
       CUC: {
         name: "Cuban convertible peso",
@@ -2328,7 +2328,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SS",
+    countryCode: "SS",
     currencies: {
       SSP: {
         name: "South Sudanese pound",
@@ -2352,7 +2352,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "DO",
+    countryCode: "DO",
     currencies: {
       DOP: {
         name: "Dominican peso",
@@ -2376,7 +2376,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GR",
+    countryCode: "GR",
     currencies: {
       EUR: {
         name: "Euro",
@@ -2404,7 +2404,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CZ",
+    countryCode: "CZ",
     currencies: {
       CZK: {
         name: "Czech koruna",
@@ -2429,7 +2429,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SE",
+    countryCode: "SE",
     currencies: {
       SEK: {
         name: "Swedish krona",
@@ -2453,7 +2453,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PT",
+    countryCode: "PT",
     currencies: {
       EUR: {
         name: "Euro",
@@ -2477,7 +2477,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "JO",
+    countryCode: "JO",
     currencies: {
       JOD: {
         name: "Jordanian dinar",
@@ -2501,7 +2501,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AZ",
+    countryCode: "AZ",
     currencies: {
       AZN: {
         name: "Azerbaijani manat",
@@ -2525,7 +2525,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "HN",
+    countryCode: "HN",
     currencies: {
       HNL: {
         name: "Honduran lempira",
@@ -2549,7 +2549,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AE",
+    countryCode: "AE",
     currencies: {
       AED: {
         name: "United Arab Emirates dirham",
@@ -2573,7 +2573,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "HU",
+    countryCode: "HU",
     currencies: {
       HUF: {
         name: "Hungarian forint",
@@ -2601,7 +2601,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TJ",
+    countryCode: "TJ",
     currencies: {
       TJS: {
         name: "Tajikistani somoni",
@@ -2630,7 +2630,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BY",
+    countryCode: "BY",
     currencies: {
       BYN: {
         name: "Belarusian ruble",
@@ -2659,7 +2659,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "IL",
+    countryCode: "IL",
     currencies: {
       ILS: {
         name: "Israeli new shekel",
@@ -2692,7 +2692,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PG",
+    countryCode: "PG",
     currencies: {
       PGK: {
         name: "Papua New Guinean kina",
@@ -2718,7 +2718,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AT",
+    countryCode: "AT",
     currencies: {
       EUR: {
         name: "Euro",
@@ -2754,7 +2754,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CH",
+    countryCode: "CH",
     currencies: {
       CHF: {
         name: "Swiss franc",
@@ -2781,7 +2781,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TG",
+    countryCode: "TG",
     currencies: {
       XOF: {
         name: "West African CFA franc",
@@ -2805,7 +2805,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SL",
+    countryCode: "SL",
     currencies: {
       SLL: {
         name: "Sierra Leonean leone",
@@ -2835,7 +2835,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "HK",
+    countryCode: "HK",
     currencies: {
       HKD: {
         name: "Hong Kong dollar",
@@ -2860,7 +2860,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "LA",
+    countryCode: "LA",
     currencies: {
       LAK: {
         name: "Lao kip",
@@ -2888,7 +2888,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PY",
+    countryCode: "PY",
     currencies: {
       PYG: {
         name: "Paraguayan guaraní",
@@ -2913,7 +2913,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BG",
+    countryCode: "BG",
     currencies: {
       BGN: {
         name: "Bulgarian lev",
@@ -2937,7 +2937,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "RS",
+    countryCode: "RS",
     currencies: {
       RSD: {
         name: "Serbian dinar",
@@ -2961,7 +2961,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "LY",
+    countryCode: "LY",
     currencies: {
       LYD: {
         name: "Libyan dinar",
@@ -2989,7 +2989,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "LB",
+    countryCode: "LB",
     currencies: {
       LBP: {
         name: "Lebanese pound",
@@ -3014,7 +3014,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "NI",
+    countryCode: "NI",
     currencies: {
       NIO: {
         name: "Nicaraguan córdoba",
@@ -3042,7 +3042,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "KG",
+    countryCode: "KG",
     currencies: {
       KGS: {
         name: "Kyrgyzstani som",
@@ -3067,7 +3067,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SV",
+    countryCode: "SV",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -3095,7 +3095,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TM",
+    countryCode: "TM",
     currencies: {
       TMT: {
         name: "Turkmenistan manat",
@@ -3120,7 +3120,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "DK",
+    countryCode: "DK",
     currencies: {
       DKK: {
         name: "Danish krone",
@@ -3156,7 +3156,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SG",
+    countryCode: "SG",
     currencies: {
       SGD: {
         name: "Singapore dollar",
@@ -3191,7 +3191,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CG",
+    countryCode: "CG",
     currencies: {
       XAF: {
         name: "Central African CFA franc",
@@ -3221,7 +3221,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "FI",
+    countryCode: "FI",
     currencies: {
       EUR: {
         name: "Euro",
@@ -3246,7 +3246,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SK",
+    countryCode: "SK",
     currencies: {
       EUR: {
         name: "Euro",
@@ -3278,7 +3278,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "NO",
+    countryCode: "NO",
     currencies: {
       NOK: {
         name: "Norwegian krone",
@@ -3312,7 +3312,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "ER",
+    countryCode: "ER",
     currencies: {
       ERN: {
         name: "Eritrean nakfa",
@@ -3338,7 +3338,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "OM",
+    countryCode: "OM",
     currencies: {
       OMR: {
         name: "Omani rial",
@@ -3362,7 +3362,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CR",
+    countryCode: "CR",
     currencies: {
       CRC: {
         name: "Costa Rican colón",
@@ -3394,7 +3394,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "NZ",
+    countryCode: "NZ",
     currencies: {
       NZD: {
         name: "New Zealand dollar",
@@ -3420,7 +3420,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "LR",
+    countryCode: "LR",
     currencies: {
       LRD: {
         name: "Liberian dollar",
@@ -3448,7 +3448,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "IE",
+    countryCode: "IE",
     currencies: {
       EUR: {
         name: "Euro",
@@ -3477,7 +3477,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CF",
+    countryCode: "CF",
     currencies: {
       XAF: {
         name: "Central African CFA franc",
@@ -3502,7 +3502,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PS",
+    countryCode: "PS",
     currencies: {
       EGP: {
         name: "Egyptian pound",
@@ -3534,7 +3534,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MR",
+    countryCode: "MR",
     currencies: {
       MRU: {
         name: "Mauritanian ouguiya",
@@ -3558,7 +3558,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PA",
+    countryCode: "PA",
     currencies: {
       PAB: {
         name: "Panamanian balboa",
@@ -3586,7 +3586,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "KW",
+    countryCode: "KW",
     currencies: {
       KWD: {
         name: "Kuwaiti dinar",
@@ -3610,7 +3610,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "HR",
+    countryCode: "HR",
     currencies: {
       EUR: {
         name: "Euro",
@@ -3634,7 +3634,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GE",
+    countryCode: "GE",
     currencies: {
       GEL: {
         name: "lari",
@@ -3658,7 +3658,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "UY",
+    countryCode: "UY",
     currencies: {
       UYU: {
         name: "Uruguayan peso",
@@ -3690,7 +3690,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BA",
+    countryCode: "BA",
     currencies: {
       BAM: {
         name: "Bosnia and Herzegovina convertible mark",
@@ -3716,7 +3716,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MN",
+    countryCode: "MN",
     currencies: {
       MNT: {
         name: "Mongolian tögrög",
@@ -3744,7 +3744,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PR",
+    countryCode: "PR",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -3769,7 +3769,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AM",
+    countryCode: "AM",
     currencies: {
       AMD: {
         name: "Armenian dram",
@@ -3797,7 +3797,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "JM",
+    countryCode: "JM",
     currencies: {
       JMD: {
         name: "Jamaican dollar",
@@ -3822,7 +3822,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "QA",
+    countryCode: "QA",
     currencies: {
       QAR: {
         name: "Qatari riyal",
@@ -3846,7 +3846,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AL",
+    countryCode: "AL",
     currencies: {
       ALL: {
         name: "Albanian lek",
@@ -3870,7 +3870,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "LT",
+    countryCode: "LT",
     currencies: {
       EUR: {
         name: "Euro",
@@ -3894,7 +3894,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MD",
+    countryCode: "MD",
     currencies: {
       MDL: {
         name: "Moldovan leu",
@@ -3950,7 +3950,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "NA",
+    countryCode: "NA",
     currencies: {
       NAD: {
         name: "Namibian dollar",
@@ -3986,7 +3986,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GM",
+    countryCode: "GM",
     currencies: {
       GMD: {
         name: "dalasi",
@@ -4014,7 +4014,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BW",
+    countryCode: "BW",
     currencies: {
       BWP: {
         name: "Botswana pula",
@@ -4039,7 +4039,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GA",
+    countryCode: "GA",
     currencies: {
       XAF: {
         name: "Central African CFA franc",
@@ -4067,7 +4067,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "LS",
+    countryCode: "LS",
     currencies: {
       LSL: {
         name: "Lesotho loti",
@@ -4096,7 +4096,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SI",
+    countryCode: "SI",
     currencies: {
       EUR: {
         name: "Euro",
@@ -4120,7 +4120,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MK",
+    countryCode: "MK",
     currencies: {
       MKD: {
         name: "denar",
@@ -4148,7 +4148,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GW",
+    countryCode: "GW",
     currencies: {
       XOF: {
         name: "West African CFA franc",
@@ -4173,7 +4173,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "LV",
+    countryCode: "LV",
     currencies: {
       EUR: {
         name: "Euro",
@@ -4201,7 +4201,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "XK",
+    countryCode: "XK",
     currencies: {
       EUR: {
         name: "Euro",
@@ -4226,7 +4226,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BH",
+    countryCode: "BH",
     currencies: {
       BHD: {
         name: "Bahraini dinar",
@@ -4258,7 +4258,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GQ",
+    countryCode: "GQ",
     currencies: {
       XAF: {
         name: "Central African CFA franc",
@@ -4284,7 +4284,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TT",
+    countryCode: "TT",
     currencies: {
       TTD: {
         name: "Trinidad and Tobago dollar",
@@ -4308,7 +4308,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "EE",
+    countryCode: "EE",
     currencies: {
       EUR: {
         name: "Euro",
@@ -4336,7 +4336,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TL",
+    countryCode: "TL",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -4369,7 +4369,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MU",
+    countryCode: "MU",
     currencies: {
       MUR: {
         name: "Mauritian rupee",
@@ -4399,7 +4399,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CY",
+    countryCode: "CY",
     currencies: {
       EUR: {
         name: "Euro",
@@ -4428,7 +4428,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SZ",
+    countryCode: "SZ",
     currencies: {
       SZL: {
         name: "Swazi lilangeni",
@@ -4461,7 +4461,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "DJ",
+    countryCode: "DJ",
     currencies: {
       DJF: {
         name: "Djiboutian franc",
@@ -4494,7 +4494,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "FJ",
+    countryCode: "FJ",
     currencies: {
       FJD: {
         name: "Fijian dollar",
@@ -4528,7 +4528,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "KM",
+    countryCode: "KM",
     currencies: {
       KMF: {
         name: "Comorian franc",
@@ -4554,7 +4554,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "RE",
+    countryCode: "RE",
     currencies: {
       EUR: {
         name: "Euro",
@@ -4578,7 +4578,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GY",
+    countryCode: "GY",
     currencies: {
       GYD: {
         name: "Guyanese dollar",
@@ -4602,7 +4602,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BT",
+    countryCode: "BT",
     currencies: {
       BTN: {
         name: "Bhutanese ngultrum",
@@ -4630,7 +4630,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SB",
+    countryCode: "SB",
     currencies: {
       SBD: {
         name: "Solomon Islands dollar",
@@ -4660,7 +4660,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MO",
+    countryCode: "MO",
     currencies: {
       MOP: {
         name: "Macanese pataca",
@@ -4693,7 +4693,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "LU",
+    countryCode: "LU",
     currencies: {
       EUR: {
         name: "Euro",
@@ -4719,7 +4719,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "ME",
+    countryCode: "ME",
     currencies: {
       EUR: {
         name: "Euro",
@@ -4743,7 +4743,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SR",
+    countryCode: "SR",
     currencies: {
       SRD: {
         name: "Surinamese dollar",
@@ -4767,7 +4767,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CV",
+    countryCode: "CV",
     currencies: {
       CVE: {
         name: "Cape Verdean escudo",
@@ -4791,7 +4791,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MV",
+    countryCode: "MV",
     currencies: {
       MVR: {
         name: "Maldivian rufiyaa",
@@ -4819,7 +4819,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MT",
+    countryCode: "MT",
     currencies: {
       EUR: {
         name: "Euro",
@@ -4852,7 +4852,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "EH",
+    countryCode: "EH",
     currencies: {
       DZD: {
         name: "Algerian dinar",
@@ -4886,7 +4886,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BN",
+    countryCode: "BN",
     currencies: {
       BND: {
         name: "Brunei dollar",
@@ -4914,7 +4914,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GP",
+    countryCode: "GP",
     currencies: {
       EUR: {
         name: "Euro",
@@ -4946,7 +4946,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BZ",
+    countryCode: "BZ",
     currencies: {
       BZD: {
         name: "Belize dollar",
@@ -4972,7 +4972,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BS",
+    countryCode: "BS",
     currencies: {
       BSD: {
         name: "Bahamian dollar",
@@ -5000,7 +5000,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MQ",
+    countryCode: "MQ",
     currencies: {
       EUR: {
         name: "Euro",
@@ -5024,7 +5024,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "IS",
+    countryCode: "IS",
     currencies: {
       ISK: {
         name: "Icelandic króna",
@@ -5056,7 +5056,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "VU",
+    countryCode: "VU",
     currencies: {
       VUV: {
         name: "Vanuatu vatu",
@@ -5082,7 +5082,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BB",
+    countryCode: "BB",
     currencies: {
       BBD: {
         name: "Barbadian dollar",
@@ -5106,7 +5106,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PF",
+    countryCode: "PF",
     currencies: {
       XPF: {
         name: "CFP franc",
@@ -5130,7 +5130,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "NC",
+    countryCode: "NC",
     currencies: {
       XPF: {
         name: "CFP franc",
@@ -5154,7 +5154,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GF",
+    countryCode: "GF",
     currencies: {
       EUR: {
         name: "Euro",
@@ -5178,7 +5178,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "YT",
+    countryCode: "YT",
     currencies: {
       EUR: {
         name: "Euro",
@@ -5202,7 +5202,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "ST",
+    countryCode: "ST",
     currencies: {
       STN: {
         name: "São Tomé and Príncipe dobra",
@@ -5230,7 +5230,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "WS",
+    countryCode: "WS",
     currencies: {
       WST: {
         name: "Samoan tālā",
@@ -5255,7 +5255,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "LC",
+    countryCode: "LC",
     currencies: {
       XCD: {
         name: "Eastern Caribbean dollar",
@@ -5287,7 +5287,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GU",
+    countryCode: "GU",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -5321,7 +5321,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CW",
+    countryCode: "CW",
     currencies: {
       ANG: {
         name: "Netherlands Antillean guilder",
@@ -5351,7 +5351,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "KI",
+    countryCode: "KI",
     currencies: {
       AUD: {
         name: "Australian dollar",
@@ -5380,7 +5380,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "FM",
+    countryCode: "FM",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -5404,7 +5404,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GD",
+    countryCode: "GD",
     currencies: {
       XCD: {
         name: "Eastern Caribbean dollar",
@@ -5428,7 +5428,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "VC",
+    countryCode: "VC",
     currencies: {
       XCD: {
         name: "Eastern Caribbean dollar",
@@ -5456,7 +5456,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AW",
+    countryCode: "AW",
     currencies: {
       AWG: {
         name: "Aruban florin",
@@ -5481,7 +5481,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "VI",
+    countryCode: "VI",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -5509,7 +5509,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TO",
+    countryCode: "TO",
     currencies: {
       TOP: {
         name: "Tongan paʻanga",
@@ -5542,7 +5542,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "JE",
+    countryCode: "JE",
     currencies: {
       GBP: {
         name: "British pound",
@@ -5580,7 +5580,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SC",
+    countryCode: "SC",
     currencies: {
       SCR: {
         name: "Seychellois rupee",
@@ -5606,7 +5606,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AG",
+    countryCode: "AG",
     currencies: {
       XCD: {
         name: "Eastern Caribbean dollar",
@@ -5634,7 +5634,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "IM",
+    countryCode: "IM",
     currencies: {
       GBP: {
         name: "British pound",
@@ -5663,7 +5663,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AD",
+    countryCode: "AD",
     currencies: {
       EUR: {
         name: "Euro",
@@ -5687,7 +5687,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "DM",
+    countryCode: "DM",
     currencies: {
       XCD: {
         name: "Eastern Caribbean dollar",
@@ -5711,7 +5711,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "KY",
+    countryCode: "KY",
     currencies: {
       KYD: {
         name: "Cayman Islands dollar",
@@ -5735,7 +5735,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BM",
+    countryCode: "BM",
     currencies: {
       BMD: {
         name: "Bermudian dollar",
@@ -5767,7 +5767,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GG",
+    countryCode: "GG",
     currencies: {
       GBP: {
         name: "British pound",
@@ -5801,7 +5801,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MH",
+    countryCode: "MH",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -5834,7 +5834,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MP",
+    countryCode: "MP",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -5860,7 +5860,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GL",
+    countryCode: "GL",
     currencies: {
       DKK: {
         name: "krone",
@@ -5888,7 +5888,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AS",
+    countryCode: "AS",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -5913,7 +5913,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SH",
+    countryCode: "SH",
     currencies: {
       GBP: {
         name: "Pound sterling",
@@ -5941,7 +5941,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "KN",
+    countryCode: "KN",
     currencies: {
       XCD: {
         name: "Eastern Caribbean dollar",
@@ -5969,7 +5969,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "FO",
+    countryCode: "FO",
     currencies: {
       DKK: {
         name: "Danish krone",
@@ -6006,7 +6006,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SX",
+    countryCode: "SX",
     currencies: {
       ANG: {
         name: "Netherlands Antillean guilder",
@@ -6032,7 +6032,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MC",
+    countryCode: "MC",
     currencies: {
       EUR: {
         name: "Euro",
@@ -6056,7 +6056,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TC",
+    countryCode: "TC",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -6080,7 +6080,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MF",
+    countryCode: "MF",
     currencies: {
       EUR: {
         name: "Euro",
@@ -6104,7 +6104,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "LI",
+    countryCode: "LI",
     currencies: {
       CHF: {
         name: "Swiss franc",
@@ -6128,7 +6128,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SM",
+    countryCode: "SM",
     currencies: {
       EUR: {
         name: "Euro",
@@ -6152,7 +6152,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GI",
+    countryCode: "GI",
     currencies: {
       GIP: {
         name: "Gibraltar pound",
@@ -6176,7 +6176,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "VG",
+    countryCode: "VG",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -6200,7 +6200,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AX",
+    countryCode: "AX",
     currencies: {
       EUR: {
         name: "Euro",
@@ -6228,7 +6228,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BQ",
+    countryCode: "BQ",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -6258,7 +6258,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CK",
+    countryCode: "CK",
     currencies: {
       CKD: {
         name: "Cook Islands dollar",
@@ -6291,7 +6291,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PW",
+    countryCode: "PW",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -6316,7 +6316,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "AI",
+    countryCode: "AI",
     currencies: {
       XCD: {
         name: "Eastern Caribbean dollar",
@@ -6344,7 +6344,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TV",
+    countryCode: "TV",
     currencies: {
       AUD: {
         name: "Australian dollar",
@@ -6373,7 +6373,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "WF",
+    countryCode: "WF",
     currencies: {
       XPF: {
         name: "CFP franc",
@@ -6401,7 +6401,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "NR",
+    countryCode: "NR",
     currencies: {
       AUD: {
         name: "Australian dollar",
@@ -6426,7 +6426,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PM",
+    countryCode: "PM",
     currencies: {
       EUR: {
         name: "Euro",
@@ -6450,7 +6450,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "MS",
+    countryCode: "MS",
     currencies: {
       XCD: {
         name: "Eastern Caribbean dollar",
@@ -6474,7 +6474,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BL",
+    countryCode: "BL",
     currencies: {
       EUR: {
         name: "Euro",
@@ -6498,7 +6498,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "IO",
+    countryCode: "IO",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -6522,7 +6522,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "FK",
+    countryCode: "FK",
     currencies: {
       FKP: {
         name: "Falkland Islands pound",
@@ -6546,7 +6546,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "SJ",
+    countryCode: "SJ",
     currencies: {
       NOK: {
         name: "krone",
@@ -6574,7 +6574,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "NF",
+    countryCode: "NF",
     currencies: {
       AUD: {
         name: "Australian dollar",
@@ -6599,7 +6599,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CX",
+    countryCode: "CX",
     currencies: {
       AUD: {
         name: "Australian dollar",
@@ -6627,7 +6627,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "NU",
+    countryCode: "NU",
     currencies: {
       NZD: {
         name: "New Zealand dollar",
@@ -6660,7 +6660,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TK",
+    countryCode: "TK",
     currencies: {
       NZD: {
         name: "New Zealand dollar",
@@ -6681,7 +6681,7 @@ export const detailedCountryInformation = [
       official: "Antarctica",
       nativeName: {},
     },
-    cca2: "AQ",
+    countryCode: "AQ",
     currencies: {},
     languages: {},
     flag: "🇦🇶",
@@ -6698,7 +6698,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "CC",
+    countryCode: "CC",
     currencies: {
       AUD: {
         name: "Australian dollar",
@@ -6726,7 +6726,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "VA",
+    countryCode: "VA",
     currencies: {
       EUR: {
         name: "Euro",
@@ -6752,7 +6752,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "TF",
+    countryCode: "TF",
     currencies: {
       EUR: {
         name: "Euro",
@@ -6776,7 +6776,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "UM",
+    countryCode: "UM",
     currencies: {
       USD: {
         name: "United States dollar",
@@ -6800,7 +6800,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "PN",
+    countryCode: "PN",
     currencies: {
       NZD: {
         name: "New Zealand dollar",
@@ -6824,7 +6824,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "GS",
+    countryCode: "GS",
     currencies: {
       SHP: {
         name: "Saint Helena pound",
@@ -6848,7 +6848,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "BV",
+    countryCode: "BV",
     currencies: {},
     languages: {
       nor: "Norwegian",
@@ -6867,7 +6867,7 @@ export const detailedCountryInformation = [
         },
       },
     },
-    cca2: "HM",
+    countryCode: "HM",
     currencies: {},
     languages: {
       eng: "English",

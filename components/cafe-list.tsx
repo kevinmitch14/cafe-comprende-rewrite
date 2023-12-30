@@ -12,17 +12,18 @@ export async function CafeList({
   orderBy?: string;
 }) {
   const cafes = await getCafes(country, orderBy);
-  const countryName = detailedCountryInformation.find((i) => i.cca2 === country)
-    ?.name.common;
+  const countryName = detailedCountryInformation.find(
+    (i) => i.countryCode === country,
+  )?.name.common;
 
   if (country && cafes.length === 0) {
     return (
       <p className="mx-auto p-4 font-medium">
         {countryName
           ? `No cafes in ${detailedCountryInformation.find(
-              (c) => c.cca2 === country,
+              (c) => c.countryCode === country,
             )?.name.common} ${detailedCountryInformation.find(
-              (c) => c.cca2 === country,
+              (c) => c.countryCode === country,
             )?.flag}`
           : "Please chose a valid country."}
       </p>

@@ -80,7 +80,7 @@ export function SelectedCafe({
                 (c) =>
                   c.name.common ===
                   getCountry(selectedCafe.address_components!).toLowerCase(),
-              )?.cca2 || "",
+              )?.countryCode || "",
             latitude: selectedCafe.geometry?.location?.lat()!,
             longitude: selectedCafe.geometry?.location?.lng()!,
             name: selectedCafe.name!,

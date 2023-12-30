@@ -26,7 +26,7 @@ export function CountrySelect() {
   const searchParams = useSearchParams();
   const [value, setValue] = React.useState(
     detailedCountryInformation
-      .find((c) => c.cca2 === searchParams.get("country"))
+      .find((c) => c.countryCode === searchParams.get("country"))
       ?.name.common.toLowerCase() || "",
   );
   const pathname = usePathname();
@@ -74,7 +74,7 @@ export function CountrySelect() {
             <CommandGroup className="overflow-scroll">
               {detailedCountryInformation.map((country) => (
                 <CommandItem
-                  key={country.cca2}
+                  key={country.countryCode}
                   onSelect={(currentValue) => {
                     currentValue === value
                       ? router.push(pathname)
@@ -82,7 +82,7 @@ export function CountrySelect() {
                           router.push(
                             pathname +
                               "?" +
-                              createQueryString("country", country.cca2),
+                              createQueryString("country", country.countryCode),
                           );
                         });
                     setValue(currentValue === value ? "" : currentValue);

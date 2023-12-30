@@ -50,7 +50,7 @@ async function CafeDetails({ placeId }: { placeId: string }) {
   );
 
   const countryFlag = detailedCountryInformation.find(
-    (country) => country.cca2 === cafeData.country,
+    (country) => country.countryCode === cafeData.country,
   )?.flag;
 
   const ratings = [
