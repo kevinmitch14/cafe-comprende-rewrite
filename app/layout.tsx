@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { NavBar } from "@/components/nav-bar";
 import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({
@@ -26,6 +27,7 @@ export default function RootLayout({
         <body className={`${inter.className} antialiased`}>
           <SpeedInsights />
           <Toaster />
+          <NavBar />
           {children}
         </body>
       </html>
