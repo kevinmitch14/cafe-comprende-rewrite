@@ -13,7 +13,7 @@ import { useCafeStore } from "@/lib/store/cafe-store";
 export function CafeCard({ cafe }: { cafe: GetCafes }) {
   const { setSelectedCafe, setLatitude, setLongitude } = useCafeStore();
   return (
-    <Link href={`/place/${cafe.placeId}`}>
+    <Link href={`/place/${cafe.placeId}`} prefetch={false}>
       <Card
         className="py-2"
         onClick={() => {
