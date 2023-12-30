@@ -66,7 +66,14 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
       minZoom: 2,
       projection: { name: "mercator" },
     });
-    const geolocationControl = new mapboxgl.GeolocateControl();
+    const geolocationControl = new mapboxgl.GeolocateControl({
+      fitBoundsOptions: {
+        duration: 0,
+        animate: false,
+        maxDuration: 0,
+        zoom: 12,
+      },
+    });
     const navigationControl = new mapboxgl.NavigationControl();
     mapRef.current.addControl(navigationControl, "bottom-right");
     mapRef.current.addControl(geolocationControl, "bottom-right");
