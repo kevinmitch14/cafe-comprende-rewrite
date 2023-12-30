@@ -1,5 +1,5 @@
 import { CafeCard } from "@/components/cafe-card";
-import { countryCodeToName } from "@/lib/countries";
+import { detailedCountryInformation } from "@/lib/countries";
 import { getCafes } from "@/lib/getCafes";
 
 export type GetCafes = Awaited<ReturnType<typeof getCafes>>[0];
@@ -12,15 +12,24 @@ export async function CafeList({
   orderBy?: string;
 }) {
   const cafes = await getCafes(country, orderBy);
+  const countryName = detailedCountryInformation.find((i) => i.cca2 === country)
+    ?.name.common;
+
   if (country && cafes.length === 0) {
     return (
       <p className="mx-auto p-4 font-medium">
-        {`No cafes in ${countryCodeToName.get(country)}.`}
+        {countryName
+          ? `No cafes in ${detailedCountryInformation.find(
+              (c) => c.cca2 === country,
+            )?.name.common} ${detailedCountryInformation.find(
+              (c) => c.cca2 === country,
+            )?.flag}`
+          : "Please chose a valid country."}
       </p>
     );
   }
   return (
-    <div className="hidden gap-y-2 lg:flex lg:flex-col">
+    <div className="hidden gap-y-2 md:flex md:flex-col">
       {cafes.map((cafe) => (
         <CafeCard key={cafe.placeId} cafe={cafe} />
       ))}

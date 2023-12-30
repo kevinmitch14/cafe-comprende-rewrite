@@ -43,7 +43,7 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
 
   useEffect(() => {
     if (tempMarker.current) tempMarker.current.remove();
-    if (latitude && longitude && selectedCafe) {
+    if (latitude && longitude && selectedCafe && mapRef.current) {
       tempMarker.current = new mapboxgl.Marker({ color: "#ef4444" })
         .setLngLat({ lat: latitude, lng: longitude })
         .addTo(mapRef.current as mapboxgl.Map);
@@ -100,14 +100,26 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
     setLongitude,
   ]);
 
+  useEffect(() => {
+    if (!mapContainer.current) return;
+    const resizeObserver = new ResizeObserver(() => {
+      mapRef.current?.resize();
+    });
+    resizeObserver.observe(mapContainer.current);
+    return () => resizeObserver.disconnect();
+  }, []);
+
   return (
-    <div className="flex-1 p-1">
+    <div className="flex-1">
       <div
         className="relative inset-0 h-full w-full rounded-md"
         ref={mapContainer}
       >
         <div className="absolute bottom-0 w-full">
-          <Sheet modal={false} open={!!selectedCafe}>
+          <Sheet
+            modal={false}
+            open={!!selectedCafe && "address_components" in selectedCafe}
+          >
             <SheetContent
               className="absolute rounded-t-lg border-2"
               side={"bottom"}

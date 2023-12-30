@@ -1,8 +1,12 @@
-import { desc, eq, sql } from "drizzle-orm";
+import { desc, eq, or, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { cafe, review } from "@/lib/db/schema";
 
-export async function getCafes(country?: string, orderBy?: any) {
+export async function getCafes(
+  country?: string,
+  orderBy?: any,
+  placeId?: string,
+) {
   const cafes = await db
     .select({
       placeId: cafe.placeId,
@@ -27,7 +31,12 @@ export async function getCafes(country?: string, orderBy?: any) {
         : // TODO DEFAULT distance from user
           desc(cafe.updatedAt),
     )
-    .where(country ? eq(cafe.country, country) : undefined);
+    .where(
+      or(
+        country ? eq(cafe.country, country) : undefined,
+        placeId ? eq(cafe.placeId, placeId) : undefined,
+      ),
+    );
   return cafes;
 }
 

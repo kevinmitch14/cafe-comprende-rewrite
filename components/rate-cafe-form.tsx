@@ -15,7 +15,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { countryCodeToName } from "@/lib/countries";
+import { detailedCountryInformation } from "@/lib/countries";
 import { upperFirstChar } from "@/lib/utils";
 
 export function RateCafeForm({ cafe }: { cafe: GetCafes }) {
@@ -55,7 +55,11 @@ export function RateCafeForm({ cafe }: { cafe: GetCafes }) {
           </DialogTitle>
           <DialogDescription>
             <span className="text-sm font-medium">
-              {upperFirstChar(countryCodeToName.get(cafe.country)!)}
+              {
+                detailedCountryInformation.find(
+                  (country) => country.cca2 === cafe.country,
+                )?.name.common
+              }
             </span>
             <span>
               {cafe.latitude} - {cafe.longitude}

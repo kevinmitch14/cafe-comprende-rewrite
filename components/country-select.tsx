@@ -17,11 +17,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import {
-  countryCodeToName,
-  countryLabels,
-  countryNameToCode,
-} from "@/lib/countries";
+import { detailedCountryInformation } from "@/lib/countries";
 import { cn } from "@/lib/utils";
 
 export function CountrySelect() {
@@ -29,14 +25,16 @@ export function CountrySelect() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [value, setValue] = React.useState(
-    countryCodeToName.get(searchParams.get("country")!) || "",
+    detailedCountryInformation
+      .find((c) => c.cca2 === searchParams.get("country"))
+      ?.name.common.toLowerCase() || "",
   );
   const pathname = usePathname();
   const createQueryString = React.useCallback(
     (name: string, value: string) => {
       // @ts-ignore
       const params = new URLSearchParams(searchParams);
-      params.set(name, countryNameToCode.get(value)!);
+      params.set(name, value);
       return params.toString();
     },
     [searchParams],
@@ -58,7 +56,9 @@ export function CountrySelect() {
             aria-label="Country filter dropdown"
           >
             {value
-              ? countryLabels.find((country) => country.value === value)?.label
+              ? detailedCountryInformation.find(
+                  (c) => c.name.common.toLowerCase() === value,
+                )?.name.common
               : "Select country..."}
             {isPending ? (
               <LoadingSpinner className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -72,9 +72,9 @@ export function CountrySelect() {
             <CommandInput placeholder="Search country..." className="h-9" />
             <CommandEmpty>No country found.</CommandEmpty>
             <CommandGroup className="overflow-scroll">
-              {countryLabels.map((country) => (
+              {detailedCountryInformation.map((country) => (
                 <CommandItem
-                  key={country.value}
+                  key={country.cca2}
                   onSelect={(currentValue) => {
                     currentValue === value
                       ? router.push(pathname)
@@ -82,18 +82,21 @@ export function CountrySelect() {
                           router.push(
                             pathname +
                               "?" +
-                              createQueryString("country", country.value),
+                              createQueryString("country", country.cca2),
                           );
                         });
                     setValue(currentValue === value ? "" : currentValue);
                     setOpen(false);
                   }}
                 >
-                  {country.label}
+                  {/* Capitalised */}
+                  {country.name.common}
                   <CheckIcon
                     className={cn(
                       "ml-auto h-4 w-4",
-                      value === country.value ? "opacity-100" : "opacity-0",
+                      value === country.name.common.toLowerCase()
+                        ? "opacity-100"
+                        : "opacity-0",
                     )}
                   />
                 </CommandItem>

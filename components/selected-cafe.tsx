@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { countryNameToCode } from "@/lib/countries";
+import { detailedCountryInformation } from "@/lib/countries";
 
 function getCountry(address: google.maps.GeocoderAddressComponent[]) {
   return address.find((item) => item.types.includes("country"))!.long_name;
@@ -75,9 +75,12 @@ export function SelectedCafe({
             averageVibeRating: 4,
             averageRating: 3,
             averageWifiRating: 5,
-            country: countryNameToCode.get(
-              getCountry(selectedCafe.address_components!).toLocaleLowerCase(),
-            )!,
+            country:
+              detailedCountryInformation.find(
+                (c) =>
+                  c.name.common ===
+                  getCountry(selectedCafe.address_components!).toLowerCase(),
+              )?.cca2 || "",
             latitude: selectedCafe.geometry?.location?.lat()!,
             longitude: selectedCafe.geometry?.location?.lng()!,
             name: selectedCafe.name!,
