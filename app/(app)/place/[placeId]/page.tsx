@@ -72,7 +72,7 @@ async function CafeDetails({ placeId }: { placeId: string }) {
                 <span className="text-sm font-medium capitalize">
                   {rating.name}
                 </span>
-                <span className="text-sm">{rating.value}</span>
+                <span className="text-sm">{rating.value.toFixed(1)}</span>
               </div>
               <Progress value={rating.value * 20} />
             </div>
