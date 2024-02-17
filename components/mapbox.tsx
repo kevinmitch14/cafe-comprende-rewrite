@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { Cross2Icon, ExternalLinkIcon } from "@radix-ui/react-icons";
 import mapboxgl from "mapbox-gl";
@@ -126,7 +127,7 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
             modal={false}
             open={!!selectedCafe}
             onClose={() => setSelectedCafe(null)}
-            snapPoints={[0.3, 0.5, 1]}
+            snapPoints={[0.2, 0.4]}
           >
             <DrawerContent className="mx-[-1px] flex h-full max-h-[97%] flex-col rounded-t-[10px] border md:hidden">
               <div className={"mx-auto w-full max-w-md space-y-4 p-4 pt-5"}>
@@ -156,6 +157,44 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
                       <ExternalLinkIcon className="h-3 w-3 text-blue-500" />
                     </Badge>
                   </a>
+                </div>
+                <div className="flex snap-x snap-mandatory items-center gap-x-2 overflow-x-scroll">
+                  <Image
+                    width={200}
+                    className="aspect-square snap-center snap-always rounded-lg"
+                    height={200}
+                    src={
+                      "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?q=80&w=2835&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    }
+                    alt=""
+                  />
+                  <Image
+                    width={200}
+                    className="aspect-square snap-center snap-always rounded-lg"
+                    height={200}
+                    src={
+                      "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FmZXxlbnwwfHwwfHx8MA%3D%3D"
+                    }
+                    alt=""
+                  />
+                  <Image
+                    width={200}
+                    className="aspect-square snap-center snap-always rounded-lg"
+                    height={200}
+                    src={
+                      "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FmZXxlbnwwfHwwfHx8MA%3D%3D"
+                    }
+                    alt=""
+                  />
+                  <Image
+                    width={200}
+                    className="aspect-square snap-center snap-always rounded-lg"
+                    height={200}
+                    src={
+                      "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?q=80&w=2835&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    }
+                    alt=""
+                  />
                 </div>
               </div>
               <DrawerClose
