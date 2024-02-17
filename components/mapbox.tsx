@@ -7,12 +7,11 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { GetCafes } from "@/components/cafe-list";
 import { Badge } from "@/components/ui/badge";
 import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTitle,
+} from "@/components/ui/drawer";
 import { useCafeStore } from "@/lib/store/cafe-store";
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_API_KEY!;
@@ -123,18 +122,15 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
         ref={mapContainer}
       >
         <div className="absolute bottom-0 w-full">
-          <Sheet
+          <Drawer
             modal={false}
-            open={!!selectedCafe && "address_components" in selectedCafe}
+            open={!!selectedCafe}
+            onClose={() => setSelectedCafe(null)}
+            snapPoints={[0.3, 0.5, 1]}
           >
-            <SheetContent
-              className="absolute rounded-t-lg border-2"
-              side={"bottom"}
-            >
-              <SheetHeader>
-                <SheetTitle className="flex items-center gap-3">
-                  {selectedCafe?.name}
-                </SheetTitle>
+            <DrawerContent className="mx-[-1px] flex h-full max-h-[97%] flex-col rounded-t-[10px] border md:hidden">
+              <div className={"mx-auto w-full max-w-md space-y-4 p-4 pt-5"}>
+                <DrawerTitle>{selectedCafe?.name}</DrawerTitle>
                 <div className="flex gap-x-1">
                   <a
                     // TODO cleanup this TS mess :(
@@ -161,16 +157,16 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
                     </Badge>
                   </a>
                 </div>
-                <SheetClose
-                  onClick={() => setSelectedCafe(null)}
-                  className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary"
-                >
-                  <Cross2Icon className="h-4 w-4" />
-                  <span className="sr-only">Close</span>
-                </SheetClose>
-              </SheetHeader>
-            </SheetContent>
-          </Sheet>
+              </div>
+              <DrawerClose
+                onClick={() => setSelectedCafe(null)}
+                className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary"
+              >
+                <Cross2Icon className="h-4 w-4" />
+                <span className="sr-only">Close</span>
+              </DrawerClose>
+            </DrawerContent>
+          </Drawer>
         </div>
       </div>
     </div>
