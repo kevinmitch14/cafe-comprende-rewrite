@@ -9,12 +9,16 @@ import {
 } from "@radix-ui/react-icons";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { RemoveScroll } from "react-remove-scroll";
+// import { Drawer } from "vaul";
 import { GetCafes } from "@/components/cafe-list";
 import { Badge } from "@/components/ui/badge";
 import {
   Drawer,
   DrawerClose,
   DrawerContent,
+  DrawerOverlay,
+  DrawerPortal,
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { useCafeStore } from "@/lib/store/cafe-store";
@@ -132,43 +136,17 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
         className="relative inset-0 h-full w-full rounded-md"
         ref={mapContainer}
       >
-        <div className="absolute bottom-0 w-full">
-          <Drawer
-            modal={false}
-            open={!!selectedCafe}
-            onClose={() => setSelectedCafe(null)}
-            snapPoints={[0.3, 0.45]}
-          >
-            <DrawerContent className="mx-[-1px] h-full max-h-[97%] flex-col rounded-t-[10px] border md:hidden">
+        <Drawer
+          modal={false}
+          open={!!selectedCafe}
+          onClose={() => setSelectedCafe(null)}
+          snapPoints={[0.3, 0.45]}
+        >
+          <DrawerPortal>
+            <DrawerContent className="fixed inset-x-0 bottom-0 z-50 mx-[-1px] mt-24 flex h-full max-h-[97%] flex-col rounded-t-[10px] border bg-background md:hidden">
               <div className={"mx-auto w-full max-w-md space-y-3 p-4 pt-5"}>
                 <DrawerTitle>{selectedCafe?.name}</DrawerTitle>
-                <div className="flex gap-x-1">
-                  <a
-                    // TODO cleanup this TS mess :(
-                    href={`https://www.google.com/maps/dir/?api=1&destination_place_id=${
-                      selectedCafe && "place_id" in selectedCafe
-                        ? selectedCafe?.place_id
-                        : selectedCafe && "placeId" in selectedCafe
-                        ? selectedCafe?.placeId
-                        : null
-                    }&destination=${
-                      selectedCafe && "place_id" in selectedCafe
-                        ? selectedCafe?.place_id
-                        : selectedCafe && "placeId" in selectedCafe
-                        ? selectedCafe?.placeId
-                        : null
-                    }`}
-                  >
-                    <Badge
-                      className="flex items-center gap-x-1"
-                      variant={"secondary"}
-                    >
-                      <ExternalLinkIcon className="text-blue-500" />
-                      Directions
-                    </Badge>
-                  </a>
-                </div>
-                <div className="flex snap-x snap-mandatory items-center gap-x-2 overflow-auto">
+                <RemoveScroll className="flex snap-x snap-mandatory items-center gap-x-2 overflow-x-auto">
                   {[...sampleImages, ...sampleImages].map((link, idx) => (
                     <Image
                       key={idx}
@@ -187,7 +165,7 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
                       </span>
                     </div>
                   </Button>
-                </div>
+                </RemoveScroll>
               </div>
               <DrawerClose
                 onClick={() => setSelectedCafe(null)}
@@ -197,8 +175,9 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
                 <span className="sr-only">Close</span>
               </DrawerClose>
             </DrawerContent>
-          </Drawer>
-        </div>
+          </DrawerPortal>
+          <DrawerOverlay />
+        </Drawer>
       </div>
     </div>
   );
