@@ -4,15 +4,13 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import {
   Cross2Icon,
-  ExternalLinkIcon,
   PlusCircledIcon,
+  StarFilledIcon,
 } from "@radix-ui/react-icons";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { RemoveScroll } from "react-remove-scroll";
-// import { Drawer } from "vaul";
 import { GetCafes } from "@/components/cafe-list";
-import { Badge } from "@/components/ui/badge";
 import {
   Drawer,
   DrawerClose,
@@ -21,7 +19,7 @@ import {
   DrawerPortal,
   DrawerTitle,
 } from "@/components/ui/drawer";
-import { useCafeStore } from "@/lib/store/cafe-store";
+import { type BearState, useCafeStore } from "@/lib/store/cafe-store";
 import { Button } from "./ui/button";
 
 const sampleImages = [
@@ -107,7 +105,7 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
               : 6,
           center: { lat: cafe.latitude, lng: cafe.longitude },
         });
-        setSelectedCafe(cafe);
+        setSelectedCafe({ ...cafe, type: "rated" });
         setLatitude(cafe.latitude);
         setLongitude(cafe.longitude);
       });
@@ -135,50 +133,105 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
       <div
         className="relative inset-0 h-full w-full rounded-md"
         ref={mapContainer}
-      >
-        <Drawer
-          modal={false}
-          open={!!selectedCafe}
-          onClose={() => setSelectedCafe(null)}
-          snapPoints={[0.3, 0.45]}
-        >
-          <DrawerPortal>
-            <DrawerContent className="fixed inset-x-0 bottom-0 z-50 mx-[-1px] mt-24 flex h-full max-h-[97%] flex-col rounded-t-[10px] border bg-background md:hidden">
-              <div className={"mx-auto w-full max-w-md space-y-3 p-4 pt-5"}>
-                <DrawerTitle>{selectedCafe?.name}</DrawerTitle>
-                <RemoveScroll className="flex snap-x snap-mandatory items-center gap-x-2 overflow-x-auto">
-                  {[...sampleImages, ...sampleImages].map((link, idx) => (
-                    <Image
-                      key={idx}
-                      width={150}
-                      height={150}
-                      className="aspect-square snap-center snap-always rounded-lg"
-                      src={link}
-                      alt={`Image ${idx}`}
-                    />
-                  ))}
-                  <Button asChild className="h-auto" variant={"secondary"}>
-                    <div className="flex min-w-[150px] snap-center snap-always flex-col items-center justify-center gap-2 self-stretch rounded-lg bg-muted">
-                      <PlusCircledIcon className="h-5 w-5 text-muted-foreground" />
-                      <span className="text-xs font-medium text-muted-foreground">
-                        Add photo
-                      </span>
-                    </div>
-                  </Button>
-                </RemoveScroll>
-              </div>
-              <DrawerClose
-                onClick={() => setSelectedCafe(null)}
-                className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary"
-              >
-                <Cross2Icon className="h-4 w-4" />
-                <span className="sr-only">Close</span>
-              </DrawerClose>
-            </DrawerContent>
-          </DrawerPortal>
-          <DrawerOverlay />
-        </Drawer>
-      </div>
+      />
+      <CafeDrawer selectedCafe={selectedCafe} />
     </div>
+  );
+}
+
+function CafeDrawer({
+  selectedCafe,
+}: {
+  selectedCafe: BearState["selectedCafe"];
+}) {
+  const { setSelectedCafe } = useCafeStore();
+
+  if (!selectedCafe) return;
+  return (
+    <Drawer
+      modal={false}
+      open={!!selectedCafe}
+      onClose={() => setSelectedCafe(null)}
+      snapPoints={[0.4, 0.9]}
+    >
+      <DrawerPortal>
+        <DrawerContent className="mx-[-1px] h-full max-h-[97%] flex-col border bg-background md:hidden">
+          <div className={"mx-auto w-full max-w-md space-y-3 p-4 pt-5"}>
+            <DrawerTitle>{selectedCafe.name}</DrawerTitle>
+            {/* https://github.com/emilkowalski/vaul/issues/168 */}
+            <CafeDrawerContent cafe={selectedCafe} />
+          </div>
+          <DrawerClose
+            onClick={() => setSelectedCafe(null)}
+            className="absolute right-4 top-4 inline-flex h-6 w-6 items-center justify-center rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary"
+          >
+            <Cross2Icon className="h-4 w-4" />
+            <span className="sr-only">Close</span>
+          </DrawerClose>
+        </DrawerContent>
+      </DrawerPortal>
+      <DrawerOverlay />
+    </Drawer>
+  );
+}
+
+function CafeDrawerContent({
+  cafe,
+}: {
+  cafe: NonNullable<BearState["selectedCafe"]>;
+}) {
+  if (cafe.type === "google")
+    return (
+      <>
+        <div className="flex items-center gap-x-1 text-sm font-medium text-muted-foreground">
+          <StarFilledIcon />
+          {cafe.rating}
+        </div>
+        {cafe.photos && (
+          <RemoveScroll className="flex snap-x snap-mandatory items-center gap-x-2 overflow-x-auto">
+            {cafe.photos.map((photo) => {
+              const url = photo.getUrl();
+              return (
+                <img
+                  width={150}
+                  height={150}
+                  src={url}
+                  alt="Image"
+                  key={url}
+                  className="aspect-square snap-center snap-always rounded-lg"
+                />
+              );
+            })}
+          </RemoveScroll>
+        )}{" "}
+      </>
+    );
+  return (
+    <>
+      <div className="flex items-center gap-x-1 text-sm font-medium text-muted-foreground">
+        <StarFilledIcon />
+        {cafe.averageRating.toFixed(1)}
+      </div>
+      <RemoveScroll className="flex snap-x snap-mandatory items-center gap-x-2 overflow-x-auto">
+        {[...sampleImages, ...sampleImages].map((link, idx) => (
+          <Image
+            key={idx}
+            width={150}
+            height={150}
+            className="aspect-square snap-center snap-always rounded-lg"
+            src={link}
+            alt={`Image ${idx}`}
+          />
+        ))}
+        <Button asChild className="h-auto" variant={"secondary"}>
+          <div className="flex min-w-[150px] snap-center snap-always flex-col items-center justify-center gap-2 self-stretch rounded-lg bg-muted">
+            <PlusCircledIcon className="h-5 w-5 text-muted-foreground" />
+            <span className="text-xs font-medium text-muted-foreground">
+              Add photo
+            </span>
+          </div>
+        </Button>
+      </RemoveScroll>
+    </>
   );
 }
