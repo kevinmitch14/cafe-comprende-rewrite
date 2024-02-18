@@ -134,9 +134,10 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
       >
         <div className="absolute bottom-0 w-full">
           <Drawer
+            modal={false}
             open={!!selectedCafe}
             onClose={() => setSelectedCafe(null)}
-            snapPoints={[0.3, 0.5]}
+            snapPoints={[0.3, 0.45]}
           >
             <DrawerContent className="mx-[-1px] h-full max-h-[97%] flex-col rounded-t-[10px] border md:hidden">
               <div className={"mx-auto w-full max-w-md space-y-3 p-4 pt-5"}>
