@@ -1,11 +1,12 @@
 import { create } from "zustand";
 import { GetCafes } from "@/components/cafe-list";
 
+export type RatedCafe = GetCafes & { type: "rated" };
+export type GoogleCafe = google.maps.places.PlaceResult & { type: "google" };
+
 export interface BearState {
-  selectedCafe: google.maps.places.PlaceResult | GetCafes | null;
-  setSelectedCafe: (
-    cafe: google.maps.places.PlaceResult | GetCafes | null,
-  ) => void;
+  selectedCafe: GoogleCafe | RatedCafe | null;
+  setSelectedCafe: (cafe: RatedCafe | GoogleCafe | null) => void;
   latitude: number | null;
   setLatitude: (latitude: number) => void;
   longitude: number | null;

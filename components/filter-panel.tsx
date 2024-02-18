@@ -10,7 +10,7 @@ export function FilterPanel({ children }: { children: React.ReactNode }) {
   const [inputValue, setInputValue] = React.useState("");
 
   function handleSelectedCafe(cafe: google.maps.places.PlaceResult | null) {
-    setSelectedCafe(cafe);
+    setSelectedCafe({ ...cafe, type: "google" });
     setLongitude(cafe?.geometry?.location?.lng()!);
     setLatitude(cafe?.geometry?.location?.lat()!);
   }

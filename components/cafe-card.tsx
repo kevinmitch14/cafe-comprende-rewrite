@@ -19,7 +19,7 @@ export function CafeCard({ cafe }: { cafe: GetCafes }) {
         onClick={() => {
           setLatitude(cafe.latitude);
           setLongitude(cafe.longitude);
-          setSelectedCafe(cafe);
+          setSelectedCafe({ ...cafe, type: "rated" });
         }}
         key={cafe.placeId}
       >
