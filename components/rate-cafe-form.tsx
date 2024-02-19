@@ -30,12 +30,9 @@ export function RateCafeForm({ cafe }: { cafe: GetCafes }) {
   const cafeCountryInfo = detailedCountryInformation.find(
     ({ countryCode }) => countryCode === cafe.country,
   );
-
-  async function handleAction(formData: FormData) {
-    await createReview(formData);
-    closeDialog();
+  function closeDialog() {
+    setDialogOpen(false);
   }
-
 
   return (
     <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
