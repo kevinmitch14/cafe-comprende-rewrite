@@ -86,7 +86,7 @@ export function FilterPopover() {
                   aria-label={`Toggle ${category}`}
                   variant={"outline"}
                   size={"sm"}
-                  key={crypto.randomUUID()}
+                  key={category}
                 >
                   {category}
                 </Toggle>

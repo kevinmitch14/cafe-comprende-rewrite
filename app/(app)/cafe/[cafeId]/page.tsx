@@ -21,12 +21,12 @@ export default async function PlacePage({
     <div className="w-screen p-2 md:w-auto">
       <div className="flex justify-between">
         <Link href={"/"}>
-          <Button className="flex gap-2" variant={"secondary"}>
+          <Button className="flex gap-2" size={"sm"} variant={"secondary"}>
             <ArrowLeftIcon />
             <span>Back</span>
           </Button>
         </Link>
-        <Button variant={"secondary"} size={"icon"}>
+        <Button variant={"secondary"} size={"sm"}>
           {/* bookmarked ? <BookmarkFilledIcon/> :  */}
           <BookmarkIcon />
         </Button>

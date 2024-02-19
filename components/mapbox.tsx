@@ -196,7 +196,7 @@ function CafeDrawerContent({
                   width={150}
                   height={150}
                   src={url}
-                  alt="Image"
+                  alt={`Image for ${cafe.name}`}
                   key={url}
                   className="aspect-square snap-center snap-always rounded-lg"
                 />

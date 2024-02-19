@@ -47,13 +47,13 @@ export function SelectedCafe({
             <div className="grid grid-cols-3 gap-1">
               {selectedCafe.photos?.map((photo, idx) => {
                 const numberOfPhotos = selectedCafe.photos?.length;
+                const photoUrl = photo.getUrl();
                 if (idx >= numberOfPhotos! - (numberOfPhotos! % 3)) return;
                 return (
-                  <div key={idx} className="relative h-20">
+                  <div key={photoUrl} className="relative h-20">
                     <Image
                       // TODO fix images in prod, allowed domains next image
-                      key={crypto.randomUUID()}
-                      src={photo.getUrl()}
+                      src={photoUrl}
                       alt=""
                       fill
                       sizes="100px"

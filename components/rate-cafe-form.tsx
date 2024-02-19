@@ -27,14 +27,9 @@ export function RateCafeForm({ cafe }: { cafe: GetCafes }) {
     { name: "location", rating: cafe.averageLocationRating },
   ] as const;
 
-  function closeDialog() {
-    setDialogOpen(false);
-  }
-
-  async function handleAction(formData: FormData) {
-    await createReview(formData);
-    closeDialog();
-  }
+  const cafeCountryInfo = detailedCountryInformation.find(
+    ({ countryCode }) => countryCode === cafe.country,
+  );
 
   return (
     <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
@@ -54,16 +49,16 @@ export function RateCafeForm({ cafe }: { cafe: GetCafes }) {
             </Badge>
           </DialogTitle>
           <DialogDescription>
-            <span className="text-sm font-medium">
-              {
-                detailedCountryInformation.find(
-                  (country) => country.countryCode === cafe.country,
-                )?.name.common
-              }
-            </span>
-            <span>
-              {cafe.latitude} - {cafe.longitude}
-            </span>
+            <div className="flex items-center gap-x-2">
+              {cafeCountryInfo && (
+                <span className="text-sm font-medium">
+                  {cafeCountryInfo.name.common}
+                </span>
+              )}
+              <span className="font-medium text-blue-500">
+                {cafe.latitude.toFixed(4)}, {cafe.longitude.toFixed(4)}
+              </span>
+            </div>
           </DialogDescription>
         </DialogHeader>
         <form action={handleAction} className="flex flex-col gap-y-4 py-2">
