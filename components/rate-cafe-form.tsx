@@ -34,6 +34,12 @@ export function RateCafeForm({ cafe }: { cafe: GetCafes }) {
     setDialogOpen(false);
   }
 
+  async function handleAction(formData: FormData) {
+    await createReview(formData);
+    closeDialog();
+  }
+
+
   return (
     <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
       <DialogTrigger asChild>
