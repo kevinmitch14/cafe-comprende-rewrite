@@ -31,6 +31,12 @@ export function RateCafeForm({ cafe }: { cafe: GetCafes }) {
     ({ countryCode }) => countryCode === cafe.country,
   );
 
+  async function handleAction(formData: FormData) {
+    await createReview(formData);
+    closeDialog();
+  }
+
+
   return (
     <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
       <DialogTrigger asChild>
