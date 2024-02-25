@@ -1,12 +1,13 @@
-import type { Config } from "drizzle-kit";
 import * as dotenv from "dotenv";
-dotenv.config();
+import { defineConfig } from "drizzle-kit";
 
-export default {
+dotenv.config({ path: ".env.local" });
+
+export default defineConfig({
   schema: "./lib/db/schema.ts",
   out: "./lib/db",
   driver: "mysql2",
   dbCredentials: {
-    connectionString: process.env.DATABASE_URL || "",
+    uri: process.env.DATABASE_URL || "",
   },
-} satisfies Config;
+});
