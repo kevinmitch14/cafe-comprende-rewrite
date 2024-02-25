@@ -15,7 +15,7 @@ import { getCafes } from "@/lib/getCafes";
 export default async function PlacePage({
   params,
 }: {
-  params: { placeId: string };
+  params: { cafeId: string };
 }) {
   return (
     <div className="w-screen p-2 md:w-auto">
@@ -38,7 +38,7 @@ export default async function PlacePage({
           </div>
         }
       >
-        <CafeDetails placeId={params.placeId} />
+        <CafeDetails placeId={params.cafeId} />
       </Suspense>
     </div>
   );
