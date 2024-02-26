@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { Suspense } from "react";
 import {
   ArrowLeftIcon,
   BookmarkIcon,
   ExternalLinkIcon,
 } from "@radix-ui/react-icons";
-import { LoadingSpinner } from "@/components/loading-spinner";
 import { RateCafeForm } from "@/components/rate-cafe-form";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -31,15 +29,7 @@ export default async function PlacePage({
           <BookmarkIcon />
         </Button>
       </div>
-      <Suspense
-        fallback={
-          <div className="flex justify-center py-12">
-            <LoadingSpinner />
-          </div>
-        }
-      >
-        <CafeDetails placeId={params.cafeId} />
-      </Suspense>
+      <CafeDetails placeId={params.cafeId} />
     </div>
   );
 }
