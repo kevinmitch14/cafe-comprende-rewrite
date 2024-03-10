@@ -56,13 +56,14 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
   const mapCenter = zustandMap?.getCenter();
   if (
     selectedCafe &&
+    selectedCafe.type === "rated" &&
     mapCenter?.lat === DEFAULT_MAP_LATITUDE &&
     mapCenter?.lng === DEFAULT_MAP_LONGITUDE
   ) {
     zustandMap?.flyTo({
       center: {
-        lat: activeCafe?.latitude!,
-        lon: activeCafe?.longitude!,
+        lat: selectedCafe.latitude,
+        lng: selectedCafe.longitude,
       },
       zoom: DEFAULT_MAP_FULL_ZOOM,
       animate: false,
