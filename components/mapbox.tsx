@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useSelectedLayoutSegments } from "next/navigation";
 import { useEffect, useRef } from "react";
 import {
   Cross2Icon,
@@ -19,7 +20,13 @@ import {
   DrawerPortal,
   DrawerTitle,
 } from "@/components/ui/drawer";
+import {
+  DEFAULT_MAP_FULL_ZOOM,
+  DEFAULT_MAP_LATITUDE,
+  DEFAULT_MAP_LONGITUDE,
+} from "@/lib/consts";
 import { type BearState, useCafeStore } from "@/lib/store/cafe-store";
+import { useMapStore } from "@/lib/store/map-store";
 import { Button } from "./ui/button";
 
 const sampleImages = [
@@ -38,41 +45,53 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
     setLatitude,
     setLongitude,
   } = useCafeStore();
+  const { map: zustandMap, setMap } = useMapStore();
 
+  const cafeId = useSelectedLayoutSegments()[1];
+  const activeCafe = cafeData.find((c) => c.placeId === cafeId)!;
+  if (activeCafe && !selectedCafe) {
+    setSelectedCafe({ type: "rated", ...activeCafe });
+  }
+
+  const mapCenter = zustandMap?.getCenter();
+  if (
+    selectedCafe &&
+    mapCenter?.lat === DEFAULT_MAP_LATITUDE &&
+    mapCenter?.lng === DEFAULT_MAP_LONGITUDE
+  ) {
+    zustandMap?.flyTo({
+      center: {
+        lat: activeCafe?.latitude!,
+        lon: activeCafe?.longitude!,
+      },
+      zoom: DEFAULT_MAP_FULL_ZOOM,
+      animate: false,
+    });
+  }
   const mapContainer = useRef<any>(null);
-  const mapRef = useRef<mapboxgl.Map | null>(null);
   const tempMarker = useRef<mapboxgl.Marker | null>(null);
 
   useEffect(() => {
-    if (latitude && longitude) {
-      mapRef.current?.flyTo({
-        center: { lat: latitude, lng: longitude },
-        maxDuration: 1000,
-        zoom: 15,
-      });
-    }
-  }, [latitude, longitude]);
-
-  useEffect(() => {
+    if (!zustandMap) return;
     if (tempMarker.current) tempMarker.current.remove();
-    if (latitude && longitude && selectedCafe && mapRef.current) {
+    if (latitude && longitude && selectedCafe && zustandMap) {
       tempMarker.current = new mapboxgl.Marker({ color: "#ef4444" })
         .setLngLat({ lat: latitude, lng: longitude })
-        .addTo(mapRef.current as mapboxgl.Map);
+        .addTo(zustandMap as mapboxgl.Map);
     }
-  }, [latitude, longitude, selectedCafe]);
+  }, [zustandMap, latitude, longitude, selectedCafe]);
 
   // TODO after DragEvent, do new serch
   useEffect(() => {
-    if (mapRef.current) return; // initialize map only once
-    mapRef.current = new mapboxgl.Map({
+    if (zustandMap) return; // initialize map only once
+    const map = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v8",
       center: {
-        lat: latitude ? Number(latitude) : 40,
-        lon: longitude ? Number(longitude) : 2,
+        lat: latitude ? Number(latitude) : DEFAULT_MAP_LATITUDE,
+        lon: longitude ? Number(longitude) : DEFAULT_MAP_LONGITUDE,
       },
-      zoom: latitude && longitude ? 10 : 3,
+      zoom: latitude && longitude ? DEFAULT_MAP_FULL_ZOOM : 3,
       bearing: 0,
       pitch: 0,
       minZoom: 2,
@@ -83,25 +102,25 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
         duration: 0,
         animate: false,
         maxDuration: 0,
-        zoom: 12,
+        zoom: DEFAULT_MAP_FULL_ZOOM,
       },
     });
     const navigationControl = new mapboxgl.NavigationControl();
-    mapRef.current.addControl(navigationControl, "bottom-right");
-    mapRef.current.addControl(geolocationControl, "bottom-right");
-    mapRef.current.on("load", () => geolocationControl.trigger());
+    map.addControl(navigationControl, "bottom-right");
+    map.addControl(geolocationControl, "bottom-right");
+    map.on("load", () => geolocationControl.trigger());
     cafeData.forEach((cafe) => {
       const marker = new mapboxgl.Marker()
         .setLngLat({ lat: cafe.latitude, lng: cafe.longitude })
-        .addTo(mapRef.current as mapboxgl.Map);
+        .addTo(map);
       marker.getElement().addEventListener("click", () => {
-        mapRef.current?.flyTo({
+        map.flyTo({
           duration: 500,
           zoom:
-            mapRef.current.getZoom() > 6
-              ? mapRef.current.getZoom()
+            map.getZoom() > 6
+              ? map.getZoom()
               : latitude && longitude
-              ? 10
+              ? DEFAULT_MAP_FULL_ZOOM
               : 6,
           center: { lat: cafe.latitude, lng: cafe.longitude },
         });
@@ -110,6 +129,7 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
         setLongitude(cafe.longitude);
       });
     });
+    setMap(map);
   }, [
     cafeData,
     latitude,
@@ -117,16 +137,18 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
     setSelectedCafe,
     setLatitude,
     setLongitude,
+    zustandMap,
+    setMap,
   ]);
 
   useEffect(() => {
-    if (!mapContainer.current) return;
+    if (!mapContainer.current || !zustandMap) return;
     const resizeObserver = new ResizeObserver(() => {
-      mapRef.current?.resize();
+      zustandMap.resize();
     });
     resizeObserver.observe(mapContainer.current);
     return () => resizeObserver.disconnect();
-  }, []);
+  }, [zustandMap]);
 
   return (
     <div className="flex-1">
@@ -192,6 +214,7 @@ function CafeDrawerContent({
             {cafe.photos.map((photo) => {
               const url = photo.getUrl();
               return (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   width={150}
                   height={150}

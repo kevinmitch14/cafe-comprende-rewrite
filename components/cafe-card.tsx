@@ -8,17 +8,27 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { DEFAULT_MAP_FULL_ZOOM } from "@/lib/consts";
 import { useCafeStore } from "@/lib/store/cafe-store";
+import { useMapStore } from "@/lib/store/map-store";
 
 export function CafeCard({ cafe }: { cafe: GetCafes }) {
   const { setSelectedCafe, setLatitude, setLongitude } = useCafeStore();
+  const { map } = useMapStore();
   return (
     <Link href={`/cafe/${cafe.placeId}`}>
       <Card
         className="py-2"
         onClick={() => {
-          setLatitude(cafe.latitude);
-          setLongitude(cafe.longitude);
+          map?.flyTo({
+            animate: true,
+            maxDuration: 500,
+            center: {
+              lat: cafe.latitude,
+              lng: cafe.longitude,
+            },
+            zoom: DEFAULT_MAP_FULL_ZOOM,
+          });
           setSelectedCafe({ ...cafe, type: "rated" });
         }}
         key={cafe.placeId}
