@@ -84,7 +84,7 @@ export function SelectedCafe({
             latitude: selectedCafe.geometry?.location?.lat()!,
             longitude: selectedCafe.geometry?.location?.lng()!,
             name: selectedCafe.name!,
-            placeId: selectedCafe.place_id!,
+            id: selectedCafe.place_id!,
             numberOfReviews: 3,
           }}
         />
