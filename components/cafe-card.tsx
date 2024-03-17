@@ -16,7 +16,7 @@ export function CafeCard({ cafe }: { cafe: GetCafes }) {
   const { setSelectedCafe, setLatitude, setLongitude } = useCafeStore();
   const { map } = useMapStore();
   return (
-    <Link href={`/cafe/${cafe.placeId}`}>
+    <Link href={`/cafe/${cafe.id}`}>
       <Card
         className="py-2"
         onClick={() => {
@@ -31,7 +31,7 @@ export function CafeCard({ cafe }: { cafe: GetCafes }) {
           });
           setSelectedCafe({ ...cafe, type: "rated" });
         }}
-        key={cafe.placeId}
+        key={cafe.id}
       >
         <CardHeader className="p-3">
           <CardTitle className="truncate">{cafe.name}</CardTitle>

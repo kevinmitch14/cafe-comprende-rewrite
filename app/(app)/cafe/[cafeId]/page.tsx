@@ -71,7 +71,7 @@ async function CafeDetails({ placeId }: { placeId: string }) {
       </div>
       <div className="mt-4 flex gap-x-1.5">
         <a
-          href={`https://www.google.com/maps/dir/?api=1&destination_place_id=${cafeData.placeId}&destination=${cafeData.placeId}`}
+          href={`https://www.google.com/maps/dir/?api=1&destination_place_id=${cafeData.id}&destination=${cafeData.id}`}
         >
           <Button variant={"outline"} size={"sm"}>
             Directions

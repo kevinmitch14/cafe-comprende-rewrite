@@ -72,7 +72,7 @@ export function RateCafeForm({ cafe }: { cafe: GetCafes }) {
         </DialogHeader>
         <form action={handleAction} className="flex flex-col gap-y-4 py-2">
           <input type="hidden" name="name" value={cafe.name} />
-          <input type="hidden" name="placeId" value={cafe.placeId} />
+          <input type="hidden" name="placeId" value={cafe.id} />
           <input type="hidden" name="latitude" value={cafe.latitude} />
           <input type="hidden" name="longitude" value={cafe.longitude} />
           {ratings.map((category) => {

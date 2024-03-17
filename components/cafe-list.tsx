@@ -32,7 +32,7 @@ export async function CafeList({
   return (
     <div className="hidden gap-y-2 md:flex md:flex-col">
       {cafes.map((cafe) => (
-        <CafeCard key={cafe.placeId} cafe={cafe} />
+        <CafeCard key={cafe.id} cafe={cafe} />
       ))}
     </div>
   );
