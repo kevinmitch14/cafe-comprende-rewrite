@@ -6,8 +6,9 @@ dotenv.config({ path: ".env.local" });
 export default defineConfig({
   schema: "./lib/db/schema.ts",
   out: "./lib/db",
-  driver: "mysql2",
+  driver: "turso",
   dbCredentials: {
-    uri: process.env.DATABASE_URL || "",
+    url: process.env.TURSO_DB_URL || "",
+    authToken: process.env.TURSO_AUTH_TOKEN,
   },
 });

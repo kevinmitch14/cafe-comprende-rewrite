@@ -1,43 +1,43 @@
 import { desc, eq, or, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
-import { cafe, review } from "@/lib/db/schema";
+import { cafes, reviews } from "@/lib/db/schema";
 
 export async function getCafes(
   country?: string,
   orderBy?: any,
-  placeId?: string,
+  cafeId?: string,
 ) {
-  const cafes = await db
+  const cafesRes = await db
     .select({
-      placeId: cafe.placeId,
-      name: cafe.name,
-      country: cafe.country,
+      id: cafes.id,
+      name: cafes.name,
+      country: cafes.country,
       numberOfReviews: sql<number>`count (*)`,
-      latitude: cafe.latitude,
-      longitude: cafe.longitude,
-      averageLocationRating: sql<number>`avg (${review.locationRating})`,
-      averageWifiRating: sql<number>`avg (${review.wifiRating})`,
-      averageVibeRating: sql<number>`avg (${review.vibeRating})`,
-      averageRating: sql<number>`avg (${review.locationRating} + ${review.wifiRating} + ${review.vibeRating})/3 as avg_rating`,
+      latitude: cafes.latitude,
+      longitude: cafes.longitude,
+      averageLocationRating: sql<number>`avg (${reviews.locationRating})`,
+      averageWifiRating: sql<number>`avg (${reviews.wifiRating})`,
+      averageVibeRating: sql<number>`avg (${reviews.vibeRating})`,
+      averageRating: sql<number>`avg (${reviews.locationRating} + ${reviews.wifiRating} + ${reviews.vibeRating})/3 as avg_rating`,
     })
-    .from(cafe)
-    .innerJoin(review, eq(review.placeId, cafe.placeId))
-    .groupBy(cafe.placeId)
+    .from(cafes)
+    .innerJoin(reviews, eq(reviews.cafeId, cafes.id))
+    .groupBy(cafes.id)
     .orderBy(
       orderBy === "popular"
         ? desc(sql`count (*)`)
         : orderBy === "high-low"
         ? desc(sql<number>`avg_rating`)
         : // TODO DEFAULT distance from user
-          desc(cafe.updatedAt),
+          desc(cafes.updatedAt),
     )
     .where(
       or(
-        country ? eq(cafe.country, country) : undefined,
-        placeId ? eq(cafe.placeId, placeId) : undefined,
+        country ? eq(cafes.country, country) : undefined,
+        cafeId ? eq(cafes.id, cafeId) : undefined,
       ),
     );
-  return cafes;
+  return cafesRes;
 }
 
 export type CafeWithReviews = Awaited<ReturnType<typeof getCafes>>[number];

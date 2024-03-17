@@ -1,9 +1,10 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { sql } from "drizzle-orm";
 import * as z from "zod";
 import { db } from "@/lib/db";
-import { cafe, review } from "@/lib/db/schema";
+import { cafes, reviews } from "@/lib/db/schema";
 
 const newCafeReviewSchema = z.object({
   name: z.string(),
@@ -21,21 +22,22 @@ export async function createReview(formData: FormData) {
   const data = newCafeReviewSchema.parse(entries);
 
   await db
-    .insert(cafe)
+    .insert(cafes)
     .values({
-      //TODO fix this @ts-ignore
+      id: data.placeId,
       latitude: data.latitude,
       longitude: data.longitude,
-      placeId: data.placeId,
       name: data.name,
-      updatedAt: new Date().toISOString().substring(0, 23),
+      country: data.country,
     })
-    .onDuplicateKeyUpdate({
-      set: { updatedAt: new Date().toISOString().substring(0, 23) },
+    .onConflictDoUpdate({
+      set: { updatedAt: sql`(strftime('%s'))` },
+      target: cafes.id,
     });
-  await db.insert(review).values({
+
+  await db.insert(reviews).values({
     email: "test@gmail.com",
-    placeId: data.placeId,
+    cafeId: data.placeId,
     locationRating: data.locationRating,
     vibeRating: data.vibeRating,
     wifiRating: data.wifiRating,

@@ -48,7 +48,7 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
   const { map: zustandMap, setMap } = useMapStore();
 
   const cafeId = useSelectedLayoutSegments()[1];
-  const activeCafe = cafeData.find((c) => c.placeId === cafeId)!;
+  const activeCafe = cafeData.find((c) => c.id === cafeId)!;
   if (activeCafe && !selectedCafe) {
     setSelectedCafe({ type: "rated", ...activeCafe });
   }
