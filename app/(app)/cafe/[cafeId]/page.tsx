@@ -78,7 +78,7 @@ async function CafeDetails({ placeId }: { placeId: string }) {
             <ExternalLinkIcon className="ml-1 h-4 w-4" />
           </Button>
         </a>
-        <RateCafeForm cafe={cafeData} />
+        <RateCafeForm cafe={{ ...cafeData, type: "rated" }} />
       </div>
     </div>
   );

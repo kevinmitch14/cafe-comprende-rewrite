@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Cross2Icon } from "@radix-ui/react-icons";
-import { RateCafeForm } from "@/components/rate-cafe-form";
+import { RateCafeFormGoogle } from "@/components/rate-cafe-form";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,31 +11,26 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { detailedCountryInformation } from "@/lib/countries";
-
-function getCountry(address: google.maps.GeocoderAddressComponent[]) {
-  return address.find((item) => item.types.includes("country"))!.long_name;
-}
+import { GoogleCafe } from "@/lib/store/cafe-store";
 
 export function SelectedCafe({
   selectedCafe,
-  handleSelectCafe,
+  removeSelectedCafe,
   handleInput,
 }: {
-  selectedCafe: google.maps.places.PlaceResult | null;
-  handleSelectCafe: (val: google.maps.places.PlaceResult | null) => void;
+  selectedCafe: GoogleCafe;
+  removeSelectedCafe: (val: GoogleCafe | null) => void;
   handleInput: (val: string) => void;
 }) {
-  if (!selectedCafe) return;
   return (
-    <Card className="my-1.5 mt-3 min-w-[340px] p-3">
+    <Card className="my-1.5 mt-3 p-3">
       <CardHeader className="p-0">
         <div className="flex items-center justify-between">
           <CardTitle>{selectedCafe.name}</CardTitle>
           <Button variant={"ghost"} size={"icon"} className="h-auto w-auto p-1">
             <Cross2Icon
               onClick={() => {
-                handleSelectCafe(null);
+                removeSelectedCafe(null);
                 handleInput("");
               }}
             />
@@ -45,7 +40,7 @@ export function SelectedCafe({
         <CardContent className="p-0">
           {selectedCafe.photos ? (
             <div className="grid grid-cols-3 gap-1">
-              {selectedCafe.photos?.map((photo, idx) => {
+              {selectedCafe.photos.map((photo, idx) => {
                 const numberOfPhotos = selectedCafe.photos?.length;
                 const photoUrl = photo.getUrl();
                 if (idx >= numberOfPhotos! - (numberOfPhotos! % 3)) return;
@@ -66,28 +61,9 @@ export function SelectedCafe({
           ) : null}
         </CardContent>
       </CardHeader>
-      <CardContent className="p-0"></CardContent>
       <CardFooter className="flex justify-end p-0 pt-2">
         {/* TODO implement */}
-        <RateCafeForm
-          cafe={{
-            averageLocationRating: 4,
-            averageVibeRating: 4,
-            averageRating: 3,
-            averageWifiRating: 5,
-            country:
-              detailedCountryInformation.find(
-                (c) =>
-                  c.name.common ===
-                  getCountry(selectedCafe.address_components!).toLowerCase(),
-              )?.countryCode || "",
-            latitude: selectedCafe.geometry?.location?.lat()!,
-            longitude: selectedCafe.geometry?.location?.lng()!,
-            name: selectedCafe.name!,
-            id: selectedCafe.place_id!,
-            numberOfReviews: 3,
-          }}
-        />
+        <RateCafeFormGoogle {...selectedCafe} />
       </CardFooter>
     </Card>
   );

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { PlaceAutoComplete } from "@/components/places-autocomplete";
+import { SelectedCafe } from "@/components/selected-cafe";
 import { useCafeStore } from "@/lib/store/cafe-store";
 
 export function FilterPanel({ children }: { children: React.ReactNode }) {
@@ -35,6 +36,13 @@ export function FilterPanel({ children }: { children: React.ReactNode }) {
         />
         {children}
       </div>
+      {selectedCafe && selectedCafe.type === "google" && (
+        <SelectedCafe
+          selectedCafe={selectedCafe}
+          removeSelectedCafe={removeSelectedCafe}
+          handleInput={handleInput}
+        />
+      )}
     </React.Fragment>
   );
 }
