@@ -20,9 +20,6 @@ export async function NavBar() {
           <Button size={"sm"} asChild>
             <Link href="/sign-in">Sign In</Link>
           </Button>
-          <Button size={"sm"} variant={"outline"} asChild>
-            <Link href="/sign-up">Sign Up</Link>
-          </Button>
         </SignedOut>
       </div>
     </div>
