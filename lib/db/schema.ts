@@ -17,7 +17,9 @@ export const cafes = sqliteTable("cafes", {
     .default(sql`(strftime('%s'))` as unknown as Date),
   country: text("country_code", {
     length: 2,
-  }),
+  })
+    .notNull()
+    .default(""),
 });
 
 export const reviews = sqliteTable(

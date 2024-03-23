@@ -80,6 +80,11 @@ export function RateCafeFormGoogle(cafe: GoogleCafe) {
           <input type="hidden" name="placeId" value={cafe.place_id} />
           <input type="hidden" name="latitude" value={latitude} />
           <input type="hidden" name="longitude" value={longitude} />
+          <input
+            type="hidden"
+            name="country"
+            value={cafeCountryInfo?.countryCode ?? ""}
+          />
           {ratings.map((category) => {
             return (
               <div key={category.name}>
@@ -176,6 +181,7 @@ export function RateCafeForm({ cafe }: { cafe: RatedCafe }) {
           <input type="hidden" name="placeId" value={cafe.id} />
           <input type="hidden" name="latitude" value={cafe.latitude} />
           <input type="hidden" name="longitude" value={cafe.longitude} />
+          <input type="hidden" name="country" value={cafe.country} />
           {ratings.map((category) => {
             return (
               <div key={category.name}>

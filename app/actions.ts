@@ -18,17 +18,17 @@ const newCafeReviewSchema = z.object({
 });
 
 export async function createReview(formData: FormData) {
-  const entries = Object.fromEntries(formData.entries());
-  const data = newCafeReviewSchema.parse(entries);
+  const payload = Object.fromEntries(formData.entries());
+  const parsedData = newCafeReviewSchema.parse(payload);
 
   await db
     .insert(cafes)
     .values({
-      id: data.placeId,
-      latitude: data.latitude,
-      longitude: data.longitude,
-      name: data.name,
-      country: data.country,
+      id: parsedData.placeId,
+      latitude: parsedData.latitude,
+      longitude: parsedData.longitude,
+      name: parsedData.name,
+      country: parsedData.country,
     })
     .onConflictDoUpdate({
       set: { updatedAt: sql`(strftime('%s'))` },
@@ -37,10 +37,10 @@ export async function createReview(formData: FormData) {
 
   await db.insert(reviews).values({
     email: "test@gmail.com",
-    cafeId: data.placeId,
-    locationRating: data.locationRating,
-    vibeRating: data.vibeRating,
-    wifiRating: data.wifiRating,
+    cafeId: parsedData.placeId,
+    locationRating: parsedData.locationRating,
+    vibeRating: parsedData.vibeRating,
+    wifiRating: parsedData.wifiRating,
   });
   revalidatePath("/");
 }
