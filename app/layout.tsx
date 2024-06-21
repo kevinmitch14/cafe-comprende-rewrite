@@ -3,7 +3,6 @@ import "@/app/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { NavBar } from "@/components/nav-bar";
 import { Toaster } from "@/components/ui/toast";
 
 const inter = Inter({
@@ -29,7 +28,6 @@ export default function RootLayout({
           <SpeedInsights />
           <Analytics />
           <Toaster />
-          <NavBar />
           {children}
         </body>
       </html>

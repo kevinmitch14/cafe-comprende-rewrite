@@ -10,7 +10,7 @@ import { Progress } from "@/components/ui/progress";
 import { detailedCountryInformation } from "@/lib/countries";
 import { getCafes } from "@/lib/getCafes";
 
-export default async function PlacePage({
+export default async function CafePage({
   params,
 }: {
   params: { cafeId: string };
@@ -35,10 +35,9 @@ export default async function PlacePage({
 }
 
 async function CafeDetails({ placeId }: { placeId: string }) {
-  const cafeData = await getCafes(undefined, undefined, placeId).then(
-    (rows) => rows[0],
-  );
+  const [cafeData] = await getCafes(undefined, undefined, placeId);
 
+  console.log({ cafeData });
   const countryFlag = detailedCountryInformation.find(
     (country) => country.countryCode === cafeData.country,
   )?.flag;
@@ -53,7 +52,10 @@ async function CafeDetails({ placeId }: { placeId: string }) {
     <div className="mt-4">
       <span className="ml-1">{countryFlag}</span>
       <h1 className="font-medium">{cafeData.name}</h1>
-
+      <p className="text-xs font-medium text-gray-800">
+        {cafeData.averageRating}/5 - {cafeData.numberOfReviews}{" "}
+        {cafeData.numberOfReviews}
+      </p>
       <div className="mt-2 flex flex-col gap-y-2.5">
         {ratings.map((rating) => {
           return (
