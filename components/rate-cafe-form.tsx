@@ -57,21 +57,23 @@ export function RateCafeFormGoogle(cafe: GoogleCafe) {
           Rate this cafe
         </Button>
       </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
+      <DialogContent className="max-w-fit">
+        <DialogHeader className="px-4">
           <DialogTitle className="mt-4 flex items-center justify-between gap-y-1">
             <span>{cafe.name}</span>
           </DialogTitle>
           <DialogDescription asChild>
             <div className="flex items-center gap-x-2">
               {cafeCountryInfo && (
-                <span className="text-sm font-medium">
-                  {cafeCountryInfo.name.common}
-                </span>
+                <>
+                  <span className="text-sm font-medium">
+                    {cafeCountryInfo.flag}
+                  </span>
+                  <span className="text-sm font-medium">
+                    {cafeCountryInfo.name.common}
+                  </span>
+                </>
               )}
-              <span className="font-medium text-blue-500">
-                {latitude?.toFixed(4)}, {longitude?.toFixed(4)}
-              </span>
             </div>
           </DialogDescription>
         </DialogHeader>
@@ -87,20 +89,20 @@ export function RateCafeFormGoogle(cafe: GoogleCafe) {
           />
           {ratings.map((category) => {
             return (
-              <div key={category.name}>
-                <div className="flex justify-between font-medium">
+              <div key={category.name} className="space-y-2 px-4">
+                <div className="text-sm font-medium text-gray-900">
                   <span>{upperFirstChar(category.name)}</span>
                 </div>
                 <RadioGroup
                   required
                   name={`${category.name}Rating`}
-                  className="flex"
+                  className="flex gap-x-4"
                 >
                   {[1, 2, 3, 4, 5].map((num) => (
-                    <div key={num} className="flex items-center gap-x-2">
+                    <div key={num}>
                       <label
                         htmlFor={`${category.name}-option-${num}`}
-                        className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-input bg-transparent px-3 text-sm font-medium shadow-sm transition-colors duration-300 hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 has-[:checked]:bg-black has-[:checked]:text-white "
+                        className="inline-flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-input bg-transparent px-3 text-sm font-medium shadow-sm transition-colors duration-300 hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 has-[:checked]:bg-black has-[:checked]:text-white "
                       >
                         <RadioGroupItem
                           required

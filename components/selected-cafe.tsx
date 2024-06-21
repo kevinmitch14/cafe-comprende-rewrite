@@ -23,7 +23,7 @@ export function SelectedCafe({
   handleInput: (val: string) => void;
 }) {
   return (
-    <Card className="my-1.5 mt-3 p-3">
+    <Card className="my-1.5 mt-3 hidden p-3 md:block">
       <CardHeader className="p-0">
         <div className="flex items-center justify-between">
           <CardTitle>{selectedCafe.name}</CardTitle>

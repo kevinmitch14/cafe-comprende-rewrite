@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export async function NavBar() {
   return (
-    <div className="flex h-[10dvh] items-center justify-between border-b px-4 py-3 sm:h-[5dvh]">
+    <div className="flex h-[5dvh] items-center justify-between border-b px-4 py-3 md:h-[7dvh]">
       <a href={"/"}>
         <h1 className="text-xl font-extrabold tracking-tighter">
           Cafe Comprende
