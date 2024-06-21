@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useSelectedLayoutSegments } from "next/navigation";
+import { useRouter, useSelectedLayoutSegments } from "next/navigation";
 import { useEffect, useRef } from "react";
 import {
   Cross2Icon,
@@ -52,6 +52,8 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
   if (activeCafe && !selectedCafe) {
     setSelectedCafe({ type: "rated", ...activeCafe });
   }
+  const router = useRouter();
+  const { isMobile } = useMediaQuery();
 
   const mapCenter = zustandMap?.getCenter();
   if (
@@ -109,7 +111,9 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
     const navigationControl = new mapboxgl.NavigationControl();
     map.addControl(navigationControl, "bottom-right");
     map.addControl(geolocationControl, "bottom-right");
+    if (!activeCafe) {
     map.on("load", () => geolocationControl.trigger());
+    }
     cafeData.forEach((cafe) => {
       const marker = new mapboxgl.Marker()
         .setLngLat({ lat: cafe.latitude, lng: cafe.longitude })
@@ -125,13 +129,14 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
               : 6,
           center: { lat: cafe.latitude, lng: cafe.longitude },
         });
+        !isMobile && router.push(`/${cafe.id}`);
         setSelectedCafe({ ...cafe, type: "rated" });
-        setLatitude(cafe.latitude);
-        setLongitude(cafe.longitude);
       });
     });
     setMap(map);
   }, [
+    router,
+    isMobile,
     cafeData,
     latitude,
     longitude,
@@ -140,6 +145,7 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
     setLongitude,
     zustandMap,
     setMap,
+    activeCafe,
   ]);
 
   useEffect(() => {
