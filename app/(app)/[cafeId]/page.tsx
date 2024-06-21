@@ -16,7 +16,7 @@ export default async function CafePage({
   params: { cafeId: string };
 }) {
   return (
-    <div className="w-screen p-3 md:w-auto">
+    <div className="hidden w-screen p-3 md:block md:w-auto">
       <div className="flex justify-between">
         <Link href={"/"}>
           <Button className="flex gap-2" size={"sm"} variant={"secondary"}>
