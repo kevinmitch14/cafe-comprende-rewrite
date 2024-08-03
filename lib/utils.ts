@@ -1,6 +1,7 @@
 import { ReadonlyURLSearchParams } from "next/navigation";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { z } from "zod";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -19,3 +20,9 @@ export function createUrl(
 export function upperFirstChar(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+const REQUIRED_ERROR_MESSAGE = "Required";
+export const zodNonEmptyString = z
+  .string()
+  .trim()
+  .min(1, REQUIRED_ERROR_MESSAGE);
