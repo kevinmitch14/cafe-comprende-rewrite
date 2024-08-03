@@ -41,6 +41,9 @@ export function FilterPopover() {
     <Popover open={panelOpen} onOpenChange={setPanelOpen}>
       <PopoverTrigger className="shrink-0" asChild>
         <Button size={"icon"} variant={"outline"}>
+          <span className="sr-only">
+            {panelOpen ? "Close" : "Open"} filter popover menu
+          </span>
           {isPending ? <LoadingSpinner /> : <MixerHorizontalIcon />}
         </Button>
       </PopoverTrigger>
