@@ -87,7 +87,7 @@ export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
     if (zustandMap) return; // initialize map only once
     const map = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v8",
+      style: "mapbox://styles/mapbox/streets-v12",
       center: {
         lat: latitude ? Number(latitude) : DEFAULT_MAP_LATITUDE,
         lon: longitude ? Number(longitude) : DEFAULT_MAP_LONGITUDE,
