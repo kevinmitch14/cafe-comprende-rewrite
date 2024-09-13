@@ -25,6 +25,7 @@ import {
   DEFAULT_MAP_LATITUDE,
   DEFAULT_MAP_LONGITUDE,
 } from "@/lib/consts";
+import type { GetCafes } from "@/lib/getCafes";
 import useMediaQuery from "@/lib/hooks/useMediaQuery";
 import { type BearState, useCafeStore } from "@/lib/store/cafe-store";
 import { useMapStore } from "@/lib/store/map-store";

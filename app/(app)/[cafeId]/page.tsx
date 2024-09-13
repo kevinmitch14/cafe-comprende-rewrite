@@ -37,7 +37,8 @@ export default async function CafePage({
 async function CafeDetails({ placeId }: { placeId: string }) {
   const [cafeData] = await getCafes(undefined, undefined, placeId);
 
-  console.log({ cafeData });
+  if (!cafeData) notFound();
+
   const countryFlag = detailedCountryInformation.find(
     (country) => country.countryCode === cafeData.country,
   )?.flag;

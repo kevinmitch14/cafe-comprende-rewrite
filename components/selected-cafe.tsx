@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { GoogleCafe } from "@/lib/store/cafe-store";
+import { type GoogleCafe } from "@/lib/store/cafe-store";
 
 export function SelectedCafe({
   selectedCafe,

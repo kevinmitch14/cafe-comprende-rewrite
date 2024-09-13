@@ -8,7 +8,7 @@ export default defineConfig({
   out: "./lib/db",
   driver: "turso",
   dbCredentials: {
-    url: process.env.TURSO_DB_URL || "",
+    url: process.env.TURSO_DB_URL ?? "",
     authToken: process.env.TURSO_AUTH_TOKEN,
   },
 });

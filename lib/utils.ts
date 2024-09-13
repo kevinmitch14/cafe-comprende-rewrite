@@ -1,4 +1,4 @@
-import { ReadonlyURLSearchParams } from "next/navigation";
+import { type ReadonlyURLSearchParams } from "next/navigation";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { z } from "zod";

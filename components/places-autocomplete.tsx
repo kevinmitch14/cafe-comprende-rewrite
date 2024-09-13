@@ -2,7 +2,7 @@ import Script from "next/script";
 import React from "react";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { Input } from "@/components/ui/input";
-import { BearState } from "@/lib/store/cafe-store";
+import { type BearState } from "@/lib/store/cafe-store";
 
 // TODO use a state manager to manage the currently picked cafe can use this to zoom on map
 // TODO use Expiremental Autocomplete? https://developers.google.com/maps/documentation/javascript/place-autocomplete-new

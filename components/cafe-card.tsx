@@ -1,14 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { GetCafes } from "@/components/cafe-list";
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { DEFAULT_MAP_FULL_ZOOM } from "@/lib/consts";
+import type { GetCafes } from "@/lib/getCafes";
 import { useCafeStore } from "@/lib/store/cafe-store";
 import { useMapStore } from "@/lib/store/map-store";
 
