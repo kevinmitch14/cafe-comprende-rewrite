@@ -5,13 +5,14 @@ import { sql } from "drizzle-orm";
 import * as z from "zod";
 import { db } from "@/lib/db";
 import { cafes, reviews } from "@/lib/db/schema";
+import { zodNonEmptyString } from "@/lib/utils";
 
 const newCafeReviewSchema = z.object({
-  name: z.string(),
-  placeId: z.string(),
+  name: zodNonEmptyString,
+  placeId: zodNonEmptyString,
   latitude: z.coerce.number(),
   longitude: z.coerce.number(),
-  country: z.union([z.string(), z.undefined()]).optional(),
+  country: z.union([zodNonEmptyString, z.undefined()]).optional(),
   wifiRating: z.coerce.number(),
   locationRating: z.coerce.number(),
   vibeRating: z.coerce.number(),

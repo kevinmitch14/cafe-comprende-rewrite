@@ -14,8 +14,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { detailedCountryInformation } from "@/lib/countries";
-import { GoogleCafe, RatedCafe, useCafeStore } from "@/lib/store/cafe-store";
+import { DETAILED_COUNTRY_INFORMATION } from "@/lib/countries";
 import { upperFirstChar } from "@/lib/utils";
 
 function getCountry(address: google.maps.GeocoderAddressComponent[]) {
@@ -31,7 +30,7 @@ export function RateCafeFormGoogle(cafe: GoogleCafe) {
     setDialogOpen(false);
   }
 
-  const cafeCountryInfo = detailedCountryInformation.find(
+  const cafeCountryInfo = DETAILED_COUNTRY_INFORMATION.find(
     ({ countryCode }) => countryCode === getCountry(cafe.address_components!),
   );
 

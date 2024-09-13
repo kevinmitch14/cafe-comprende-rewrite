@@ -17,7 +17,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { detailedCountryInformation } from "@/lib/countries";
+import { DETAILED_COUNTRY_INFORMATION } from "@/lib/countries";
 import { cn } from "@/lib/utils";
 
 export function CountrySelect() {
@@ -25,14 +25,13 @@ export function CountrySelect() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [value, setValue] = React.useState(
-    detailedCountryInformation
-      .find((c) => c.countryCode === searchParams.get("country"))
-      ?.name.common.toLowerCase() || "",
+    DETAILED_COUNTRY_INFORMATION.find(
+      (c) => c.countryCode === searchParams.get("country"),
+    )?.name.common.toLowerCase() ?? "",
   );
   const pathname = usePathname();
   const createQueryString = React.useCallback(
     (name: string, value: string) => {
-      // @ts-ignore
       const params = new URLSearchParams(searchParams);
       params.set(name, value);
       return params.toString();
@@ -56,7 +55,7 @@ export function CountrySelect() {
             aria-label="Country filter dropdown"
           >
             {value
-              ? detailedCountryInformation.find(
+              ? DETAILED_COUNTRY_INFORMATION.find(
                   (c) => c.name.common.toLowerCase() === value,
                 )?.name.common
               : "Select country..."}
@@ -72,7 +71,7 @@ export function CountrySelect() {
             <CommandInput placeholder="Search country..." className="h-9" />
             <CommandEmpty>No country found.</CommandEmpty>
             <CommandGroup className="overflow-scroll">
-              {detailedCountryInformation.map((country) => (
+              {DETAILED_COUNTRY_INFORMATION.map((country) => (
                 <CommandItem
                   key={country.countryCode}
                   onSelect={(currentValue) => {

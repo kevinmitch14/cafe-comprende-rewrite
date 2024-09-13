@@ -38,15 +38,7 @@ const sampleImages = [
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_API_KEY!;
 
-export function MapBox({ cafeData }: { cafeData: GetCafes[] }) {
-  const {
-    selectedCafe,
-    setSelectedCafe,
-    latitude,
-    longitude,
-    setLatitude,
-    setLongitude,
-  } = useCafeStore();
+export function MapBox({ cafeData }: { cafeData: GetCafes }) {
   const { map: zustandMap, setMap } = useMapStore();
 
   const cafeId = useSelectedLayoutSegments()[1];

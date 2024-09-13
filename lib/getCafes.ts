@@ -1,12 +1,23 @@
 import { desc, eq, or, sql } from "drizzle-orm";
+import { z } from "zod";
 import { db } from "@/lib/db";
 import { cafes, reviews } from "@/lib/db/schema";
+import { countryCodeSchema } from "./countries";
 
-export async function getCafes(
-  country?: string,
-  orderBy?: any,
-  cafeId?: string,
-) {
+const OrderByOptions = ["popular", "high-low"] as const;
+export const orderByOptionsSchema = z.enum(OrderByOptions).optional();
+
+const getCafesSchema = z.object({
+  cafeId: z.string().optional(),
+  country: countryCodeSchema.optional(),
+  orderBy: orderByOptionsSchema.optional(),
+});
+
+export type GetCafesProps = z.infer<typeof getCafesSchema>;
+
+export type GetCafes = Awaited<ReturnType<typeof getCafes>>;
+
+export async function getCafes(args?: GetCafesProps) {
   const cafesRes = await db
     .select({
       id: cafes.id,
@@ -24,20 +35,18 @@ export async function getCafes(
     .innerJoin(reviews, eq(reviews.cafeId, cafes.id))
     .groupBy(cafes.id)
     .orderBy(
-      orderBy === "popular"
+      args?.orderBy === "popular"
         ? desc(sql`count (*)`)
-        : orderBy === "high-low"
+        : args?.orderBy === "high-low"
         ? desc(sql<number>`avg_rating`)
         : // TODO DEFAULT distance from user
           desc(cafes.updatedAt),
     )
     .where(
       or(
-        country ? eq(cafes.country, country) : undefined,
-        cafeId ? eq(cafes.id, cafeId) : undefined,
+        args?.country ? eq(cafes.country, args.country) : undefined,
+        args?.cafeId ? eq(cafes.id, args.cafeId) : undefined,
       ),
     );
   return cafesRes;
 }
-
-export type CafeWithReviews = Awaited<ReturnType<typeof getCafes>>[number];

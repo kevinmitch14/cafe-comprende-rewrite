@@ -1,29 +1,27 @@
 import { CafeCard } from "@/components/cafe-card";
-import { detailedCountryInformation } from "@/lib/countries";
-import { getCafes } from "@/lib/getCafes";
-
-export type GetCafes = Awaited<ReturnType<typeof getCafes>>[0];
+import { DETAILED_COUNTRY_INFORMATION } from "@/lib/countries";
+import { type GetCafesProps, getCafes } from "@/lib/getCafes";
 
 export async function CafeList({
-  country,
+  countryCode,
   orderBy,
 }: {
-  country?: string;
-  orderBy?: string;
+  countryCode?: GetCafesProps["country"];
+  orderBy?: GetCafesProps["orderBy"];
 }) {
-  const cafes = await getCafes(country, orderBy);
-  const countryName = detailedCountryInformation.find(
-    (i) => i.countryCode === country,
+  const cafes = await getCafes({ country: countryCode, orderBy });
+  const countryName = DETAILED_COUNTRY_INFORMATION.find(
+    (i) => i.countryCode === countryCode,
   )?.name.common;
 
-  if (country && cafes.length === 0) {
+  if (countryCode && cafes.length === 0) {
     return (
       <p className="mx-auto p-4 font-medium">
         {countryName
-          ? `No cafes in ${detailedCountryInformation.find(
-              (c) => c.countryCode === country,
-            )?.name.common} ${detailedCountryInformation.find(
-              (c) => c.countryCode === country,
+          ? `No cafes in ${DETAILED_COUNTRY_INFORMATION.find(
+              ({ countryCode }) => countryCode === countryCode,
+            )?.name.common} ${DETAILED_COUNTRY_INFORMATION.find(
+              ({ countryCode }) => countryCode === countryCode,
             )?.flag}`
           : "Please chose a valid country."}
       </p>
